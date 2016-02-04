@@ -37,23 +37,21 @@ R_foot = 0.02;          % Foot radius
 % (coordinate system of the front left leg)
 % Marco Frigerio's LEG data
 
-hip_mass = 3.982;
-hip_CoM = [-0.08315; 0.06849; -0.00654];
-hip_Icm = [ 0.037131,	-(0.028543),	-(-9.7E-4);
- -(0.028543),	  0.087473 ,	-(0.003392);
- -(-9.7E-4),	-(0.003392),	  0.112496];
+trunk_mass = 3.982;
+trunk_CoM = [-0.08315; 0.06849; -0.00654];
+trunk_Icm = [ 0.037131,	-0.028543, 9.7E-4;
+ -0.028543, 0.087473 , -0.003392;
+ 9.7E-4, -0.003392, 0.112496];
 
 upperleg_mass = 2.06218;
 upperleg_CoM = [0.14925; -0.02996; -5.0E-5];
-upperleg_Icm = [ 0.00464,	-(-0.00718),	-(-1.0E-5);
- -(-0.00718),	  0.07216 ,	-(-1.0E-5);
- -(-1.0E-5),	-(-1.0E-5),	  0.07463];
+upperleg_Icm = [4.64e-3, 0.00718, 1.0E-5;
+ 0.00718, 0.07216 ,	1.0E-5;
+ 1.0E-5, 1.0E-5, 0.07463];
 
 lowerleg_mass = 0.80669;
 lowerleg_CoM = [0.12185; 5.8E-4; -1.2E-4];
-lowerleg_Icm = [ 4.2E-4,	-(0.0),	-(0.0);
- -(0.0),	  0.02202 ,	-(0.0);
- -(0.0),	-(0.0),	  0.02183];
+lowerleg_Icm = [ 4.2E-4, 0,	0; 0, 0.02202, 0; 0, 0,	0.02183];
 
 % Marco's LEG description
 
@@ -61,7 +59,7 @@ hylmodel.Xtree{1} = eye(6);
 hylmodel.Xtree{2} = rotz(pi/2) * rotx(-pi/2) * xlt([0 0.13 -P_01]);
 hylmodel.Xtree{3} = xlt([P_12 0 0]);
 
-hylmodel.I{1} = mcI(hip_mass, hip_CoM, hip_Icm );
+hylmodel.I{1} = mcI(trunk_mass, trunk_CoM, trunk_Icm );
 hylmodel.I{2} = mcI(upperleg_mass, upperleg_CoM, upperleg_Icm );
 hylmodel.I{3} = mcI(lowerleg_mass, lowerleg_CoM, lowerleg_Icm );
 
