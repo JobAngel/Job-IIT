@@ -1,0 +1,4141 @@
+Model {
+  Name			  "HyQ2Max_Leg_2Dof_ForAc1CylMot"
+  Version		  7.0
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.321"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Mon Apr 20 11:28:30 2009"
+  Creator		  "Gustavo"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Gustavo"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Sun Feb 21 13:41:12 2016"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:321>"
+  ConfigurationManager	  "None"
+  UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts;"
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.3.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.3.0"
+	  StartTime		  "0.0"
+	  StopTime		  "10.0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "1e-2"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  Solver		  "ode15s"
+	  SolverName		  "ode15s"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Robust"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  RateTranMode		  "Deterministic"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.3.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    5
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "InitFltsAndDblsToZero"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnforceIntegerDowncast  on
+	  ExpressionFolding	  on
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  on
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.3.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"none"
+	  CheckSSInitialOutputMsg on
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "TryResolveAllWithWarning"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "warning"
+	  MultiTaskCondExecSysMsg "none"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  ModelReferenceSimTargetVerbose off
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  StrictBusMsg		  "Warning"
+	  LoggingUnavailableSignals "error"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.3.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.3.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  8
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "IncludeHyperlinkInReport"
+	    PropName		    "DisabledProps"
+	  }
+	  Version		  "1.3.0"
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  on
+	  GenerateTraceInfo	  off
+	  RTWCompilerOptimization "Off"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      9
+	      Array {
+		Type			"Cell"
+		Dimension		9
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"InsertBlockDesc"
+		Cell			"SFDataObjDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      SimulinkBlockComments   on
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      10
+	      Array {
+		Type			"Cell"
+		Dimension		12
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportNonFinite"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		PropName		"DisabledProps"
+	      }
+	      Version		      "1.3.0"
+	      TargetFcnLib	      "ansi_tfl_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      GenFloatMathFcnCalls    "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      CombineOutputUpdateFcns off
+	      SuppressErrorStatus     off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	SSC.SimscapeCC {
+	  $ObjectID		  11
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    1
+	    MECH.SimMechanicsCC {
+	      $ObjectID		      12
+	      Version		      "1.3.0"
+	      Name		      "SimMechanics"
+	      WarnOnRedundantConstraints on
+	      WarnOnSingularInitialAssembly off
+	      ShowCutJoints	      off
+	      VisOnUpdateDiagram      on
+	      VisDuringSimulation     on
+	    }
+	    PropName		    "Components"
+	  }
+	  Name			  "Simscape"
+	  EditingMode		  "Full"
+	  Version		  "1.0"
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Solver"
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  PhysicalModelingChecksum "3683399906"
+  PhysicalModelingParameterChecksum "3046740282"
+  PhysicalModelingProducts "SimMechanics|Simscape"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Actuator
+      SubClassName	      "unknown"
+      PortType		      "blob"
+    }
+    Block {
+      BlockType		      Clock
+      DisplayTime	      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      From
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      FromWorkspace
+      VariableName	      "simulink_input"
+      SampleTime	      "-1"
+      Interpolate	      on
+      ZeroCross		      off
+      OutputAfterFinalValue   "Extrapolation"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Goto
+      IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Ground
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      "M-S-Function"
+      FunctionName	      "mlfile"
+      DisplayMFileStacktrace  on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      PMComponent
+      SubClassName	      "unknown"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Sensor
+      SubClassName	      "unknown"
+      PortType		      "blob"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      Reshape
+      OutputDimensionality    "1-D array"
+      OutputDimensions	      "[1,1]"
+    }
+    Block {
+      BlockType		      PMIOPort
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "HyQ2Max_Leg_2Dof_ForAc1CylMot"
+    Location		    [245, 95, 1132, 949]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Body Force\nInterface for Lower leg"
+      Ports		      [0, 0, 0, 0, 0, 3, 2]
+      Position		      [90, 882, 140, 938]
+      NamePlacement	      "alternate"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"Body Force\nInterface for Lower leg"
+	Location		[301, 293, 1158, 864]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add"
+	  Ports			  [2, 1]
+	  Position		  [275, 332, 305, 363]
+	  Orientation		  "left"
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^-10"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Body A"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [375, 240, 435, 280]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS3|CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.09"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-4"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[-.3935857/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS3$[0 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 -55.1441]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[-.3935857 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[-.3935857/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[0 0 0]"
+	  CS1Rot		  "[0 0 -55.1441]"
+	  CS2Pos		  "[-.3935857 0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[0 0 0]"
+	  CS3Rot		  "[0 0 0]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Body AR"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [225, 70, 285, 110]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.01"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-3"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[.056/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 -52.3270]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[.056 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[.056/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[0 0 0]"
+	  CS1Rot		  "[0 0 -52.3270]"
+	  CS2Pos		  "[.056 0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[]"
+	  CS3Rot		  "[]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Body B"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [595, 240, 655, 280]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.09"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-4"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[-.3935857/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS1$[.3935857 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[-.3935857 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[-.3935857/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[.3935857 0 0]"
+	  CS1Rot		  "[0 0 0]"
+	  CS2Pos		  "[-.3935857 0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[]"
+	  CS3Rot		  "[]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Body BR"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [180, 235, 240, 275]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.01"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-3"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[-.056/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 52.5477]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[-.056 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[-.056/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[0 0 0]"
+	  CS1Rot		  "[0 0 52.5477]"
+	  CS2Pos		  "[-.056 0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[]"
+	  CS3Rot		  "[]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [360, 305, 390, 335]
+	  Orientation		  "left"
+	  Value			  "0.0455*0+0.06834/2+1.4570e-4"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Joint\nSpring & Damper"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [90, 425, 140, 475]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Force \nElements/Joint Spring & Damper"
+	  SourceType		  "msb"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "JointSpringDamper"
+	  DialogClass		  "JointSpringDamper"
+	  JFEParameters		  "P1$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R1$false$0$0.5$0$m$m/s$N$rad$rad/s$N*m#R2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#S$false$0$0$0$m$m/s$N$deg$deg/s$N*m"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Joint\nSpring & Damper2"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [310, 145, 360, 195]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Force \nElements/Joint Spring & Damper"
+	  SourceType		  "msb"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "JointSpringDamper"
+	  DialogClass		  "JointSpringDamper"
+	  JFEParameters		  "P1$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R1$false$0$0.5$0$m$m/s$N$rad$rad/s$N*m#R2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#S$false$0$0$0$m$m/s$N$deg$deg/s$N*m"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Joint Sensor"
+	  Ports			  [0, 3, 0, 0, 0, 1]
+	  Position		  [350, 380, 390, 420]
+	  Orientation		  "left"
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Sensors & \nActuators/Joint Sensor"
+	  SourceType		  "msb"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "Mechanical"
+	  PortType		  "blob"
+	  Muxed			  "off"
+	  Pose			  "off"
+	  Angle			  "on"
+	  AngleUnits		  "deg"
+	  ArcVelocity		  "off"
+	  ArcVelocityUnits	  "deg/s"
+	  ArcAcceleration	  "off"
+	  ArcAccelerationUnits	  "deg/s^2"
+	  CoordPosition		  "on"
+	  CoordPositionUnits	  "m"
+	  Velocity		  "on"
+	  VelocityUnits		  "m/s"
+	  Acceleration		  "off"
+	  AccelerationUnits	  "m/s^2"
+	  Quaternion		  "on"
+	  QuaternionDT		  "off"
+	  QuaternionDDT		  "off"
+	  QuaternionUnits	  "off"
+	  OutputVector		  "[1]"
+	  ActiveIO		  "on"
+	  Width			  "3"
+	  ClassName		  "JointSensor"
+	  DialogClass		  "MechanicalSensorBlock"
+	  Primitive		  "P1"
+	  Force			  "on"
+	  ForceUnits		  "N"
+	  Torque		  "off"
+	  TorqueUnits		  "N*m"
+	  ReferenceFrame	  "Absolute (World)"
+	  ReactionSensedSide	  "Base"
+	  ReactionReferenceFrame  "Absolute (World)"
+	  ReactionForce		  "off"
+	  ReactionForceUnits	  "N"
+	  ReactionMoment	  "off"
+	  ReactionMomentUnits	  "N*m"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Knee Piston\nForce"
+	  Ports			  [1]
+	  Position		  [255, 444, 285, 476]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Floating		  off
+	  Location		  [607, 753, 931, 996]
+	  Open			  on
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  TimeRange		  "10"
+	  YMin			  "-100"
+	  YMax			  "100"
+	  SaveName		  "ScopeData2"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Knee Piston\nPosition"
+	  Ports			  [1]
+	  Position		  [195, 334, 225, 366]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Floating		  off
+	  Location		  [951, 697, 1275, 936]
+	  Open			  on
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "-0.035"
+	  YMax			  "0.035"
+	  SaveName		  "ScopeData3"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Knee Piston\nVelocity"
+	  Ports			  [1]
+	  Position		  [155, 394, 185, 426]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Floating		  off
+	  Location		  [945, 742, 1269, 981]
+	  Open			  on
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "-0.035"
+	  YMax			  "0.035"
+	  SaveName		  "ScopeData5"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Prismatic"
+	  Ports			  [0, 0, 0, 0, 0, 2, 2]
+	  Position		  [500, 247, 550, 298]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Joints/Prismatic"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0|SA1"
+	  RConnTagsString	  "__newr0|SA1"
+	  NumSAPorts		  "2"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "prismatic"
+	  PrimitiveProps	  "P1$Base$[1 0 0]$prismatic"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  P1Axis		  "[1 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Prismatic -\nTranslational\nInterface"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [545, 480, 585, 520]
+	  Orientation		  "up"
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Interface \nElements/Prismatic -\nTranslational\nInterface"
+	  SourceType		  "Prismatic-Translational Interface"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "PrismaticTranslationalInterface"
+	  DialogClass		  "PrismaticTranslationalInterface"
+	  Primitive		  "P1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Revolute"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [285, 237, 335, 288]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Joints/Revolute"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0|SA1"
+	  RConnTagsString	  "__newr0"
+	  NumSAPorts		  "1"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "prismatic"
+	  PrimitiveProps	  "R1$Follower$[0 0 1]$revolute"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  R1Axis		  "[0 0 1]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Revolute2"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [380, 77, 430, 128]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Joints/Revolute"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0|SA1"
+	  RConnTagsString	  "__newr0"
+	  NumSAPorts		  "1"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "prismatic"
+	  PrimitiveProps	  "R1$Follower$[0 0 1]$revolute"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  R1Axis		  "[0 0 1]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Spherical A"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [100, 230, 150, 280]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Joints/Spherical"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0"
+	  RConnTagsString	  "__newr0"
+	  NumSAPorts		  "0"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "spherical"
+	  PrimitiveProps	  "S$WORLD$[0 0 0]$spherical"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  SAxis			  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Spherical AR"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [145, 65, 195, 115]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Joints/Spherical"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0"
+	  RConnTagsString	  "__newr0"
+	  NumSAPorts		  "0"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "spherical"
+	  PrimitiveProps	  "S$WORLD$[0 0 0]$spherical"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  SAxis			  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Spherical B"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [685, 235, 735, 285]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "mblibv1/Joints/Spherical"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "blob"
+	  RightPortType		  "blob"
+	  LConnTagsString	  "__newl0"
+	  RConnTagsString	  "__newr0"
+	  NumSAPorts		  "0"
+	  CutJoint		  "off"
+	  MarkAsCut		  "off"
+	  Primitives		  "spherical"
+	  PrimitiveProps	  "S$WORLD$[0 0 0]$spherical"
+	  ClassName		  "Joint"
+	  DialogClass		  "JointBlock"
+	  SAxis			  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace"
+	  Position		  [310, 481, 410, 519]
+	  VariableName		  "KFE_Piston_vel"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "PC"
+	  Position		  [30, 543, 60, 557]
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  Position		  [35, 248, 65, 262]
+	  Port			  "2"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "PR"
+	  Position		  [755, 541, 785, 559]
+	  Orientation		  "left"
+	  Port			  "3"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "C"
+	  Position		  [760, 253, 790, 267]
+	  Orientation		  "left"
+	  Port			  "4"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  Position		  [45, 83, 75, 97]
+	  Port			  "5"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Body A"
+	  SrcPort		  RConn1
+	  DstBlock		  "Prismatic"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Prismatic"
+	  SrcPort		  LConn1
+	  DstBlock		  "Body B"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Spherical B"
+	  SrcPort		  RConn1
+	  DstBlock		  "C"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Spherical B"
+	  SrcPort		  LConn1
+	  DstBlock		  "Body B"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Prismatic"
+	  SrcPort		  RConn2
+	  Points		  [0, 115]
+	  DstBlock		  "Joint Sensor"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Spherical A"
+	  SrcPort		  LConn1
+	  DstBlock		  "B"
+	  DstPort		  RConn1
+	}
+	Line {
+	  Labels		  [0, 0]
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [-35, 0]
+	  DstBlock		  "Add"
+	  DstPort		  1
+	}
+	Line {
+	  Labels		  [0, 0]
+	  SrcBlock		  "Add"
+	  SrcPort		  1
+	  DstBlock		  "Knee Piston\nPosition"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Joint Sensor"
+	  SrcPort		  1
+	  Points		  [-25, 0]
+	  DstBlock		  "Add"
+	  DstPort		  2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Body BR"
+	  SrcPort		  LConn1
+	  DstBlock		  "Spherical A"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Revolute"
+	  SrcPort		  RConn1
+	  Points		  [0, 5]
+	  DstBlock		  "Body A"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Revolute"
+	  SrcPort		  LConn1
+	  Points		  [0, 5]
+	  DstBlock		  "Body BR"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Joint\nSpring & Damper"
+	  SrcPort		  LConn1
+	  Points		  [-5, 0; 0, -145; 195, 0; 0, -30]
+	  DstBlock		  "Revolute"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Spherical AR"
+	  SrcPort		  LConn1
+	  DstBlock		  "A"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Body AR"
+	  SrcPort		  LConn1
+	  DstBlock		  "Spherical AR"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Revolute2"
+	  SrcPort		  RConn1
+	  Points		  [45, 0; 0, 120; -140, 0; 0, 25]
+	  DstBlock		  "Body A"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Revolute2"
+	  SrcPort		  LConn1
+	  DstBlock		  "Body AR"
+	  DstPort		  RConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Joint\nSpring & Damper2"
+	  SrcPort		  LConn1
+	  Points		  [-30, 0; 0, -40; 75, 0; 0, -15]
+	  DstBlock		  "Revolute2"
+	  DstPort		  LConn2
+	}
+	Line {
+	  SrcBlock		  "Joint Sensor"
+	  SrcPort		  3
+	  Points		  [-20, 0; 0, 45]
+	  DstBlock		  "Knee Piston\nForce"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Joint Sensor"
+	  SrcPort		  2
+	  Points		  [-100, 0; 0, 10; -35, 0]
+	  Branch {
+	    DstBlock		    "Knee Piston\nVelocity"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 90]
+	    DstBlock		    "To Workspace"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PC"
+	  SrcPort		  RConn1
+	  Points		  [480, 0]
+	  DstBlock		  "Prismatic -\nTranslational\nInterface"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "PR"
+	  SrcPort		  RConn1
+	  Points		  [-165, 0]
+	  DstBlock		  "Prismatic -\nTranslational\nInterface"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  Labels		  [1, 0]
+	  SrcBlock		  "Prismatic"
+	  SrcPort		  LConn2
+	  DstBlock		  "Prismatic -\nTranslational\nInterface"
+	  DstPort		  RConn1
+	}
+	Annotation {
+	  Position		  [630, 264]
+	}
+	Annotation {
+	  Position		  [569, 294]
+	}
+	Annotation {
+	  Position		  [570, 288]
+	}
+      }
+    }
+    Block {
+      BlockType		      Clock
+      Name		      "Clock"
+      Position		      [75, 225, 95, 245]
+      Decimation	      "10"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Custom Double-Acting\nHydraulic Cylinder for Knee"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [70, 690, 130, 745]
+      Orientation	      "left"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskType		      "Hydraulic Double-Acting Cylinder, Custom Model"
+      MaskDescription	      "The model is built entirely of Foundation Library blocks and accounts for hard stops and fluid consumption due to piston motion."
+      MaskPromptString	      "Area A (m^2)|Area B (m^2)|Stroke (m)|Initial position (m)|Contact stiffness (N/m)|Contact damping (N*s/m)"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit"
+      MaskTunableValueString  "on,on,on,on,on,on"
+      MaskCallbackString      "|||||"
+      MaskEnableString	      "on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on"
+      MaskVarAliasString      ",,,,,"
+      MaskVariables	      "area_A=@1;area_B=@2;stroke=@3;init_pos=@4;stiffness=@5;damping=@6;"
+      MaskDisplay	      "plot([127.790967235342;156.136468285695;156.136468285695;127.790967235342;127.790967235342], [113.618216710165;113.618216710165;56.927214609459;56.927214609459;113.618216710165])\nplot([227.000220911577;227.000220911577;56.927214609459;56.927214609459;227.000220911577;227.000220911577], [99.4454661849886;113.618216710165;113.618216710165;56.927214609459;56.927214609459;71.0999651346356])\nplot([156.136468285695;297.86397353746;297.86397353746;156.136468285695;156.136468285695], [99.4454661849886;99.4454661849886;71.0999651346356;71.0999651346356;99.4454661849886])\nplot([56.927214609459;28.581713559106;56.927214609459], [113.618216710165;85.2727156598121;56.927214609459])\nplot([28.581713559106;0.236212508752942], [85.2727156598121;85.2727156598121])\nplot([297.86397353746;326.209474587813], [85.2727156598121;85.2727156598121])\nplot([0.236212508752942;71.0999651346356;71.0999651346356], [28.581713559106;28.581713559106;56.927214609459])\nplot([212.827470386401;212.827470386401;323.374924482778], [56.927214609459;28.581713559106;28.581713559106])\npatch([0;326.445687096566;326.445687096566;0;0;0.472425017505884;0.472425017505884;325.97326207906;325.97326207906;0.472425017505884;0], [113.854429218918;113.854429218918;0;0;113.854429218918;113.382004201412;0.472425017505884;0.472425017505884;113.382004201412;113.382004201412;113.854429218918], [1;1;1])\n;"
+      MaskIconFrame	      off
+      MaskIconOpaque	      off
+      MaskIconRotate	      "port"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "3.14e-004|2.00e-004|0.06834|-1.4570e-4|1e7|1e5"
+      MaskTabNameString	      ",,,,,"
+      System {
+	Name			"Custom Double-Acting\nHydraulic Cylinder for Knee"
+	Location		[47, 206, 887, 536]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational\nHydro-Mechanical\nConverter"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [260, 192, 305, 228]
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Translational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Translational\nHydro-Mechanical\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "converter_transl"
+	  SchemaVersion		  "1"
+	  area			  "area_A"
+	  area_unit		  "m^2"
+	  or			  "2"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  force_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|force|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output force (N)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational\nHydro-Mechanical\nConverter1"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [450, 197, 500, 233]
+	  Orientation		  "left"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Translational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Translational\nHydro-Mechanical\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "converter_transl"
+	  SchemaVersion		  "1"
+	  area			  "area_B"
+	  area_unit		  "m^2"
+	  or			  "1"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  force_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|force|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output force (N)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Translational Hard\nStop"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [260, 110, 300, 130]
+	  Orientation		  "left"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Mechanical/Translational\nElements/Translational Hard\nStop"
+	  SourceType		  "Translational Hard\nStop"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "hardstop_transl"
+	  SchemaVersion		  "1"
+	  upper_bnd		  "stroke - init_pos"
+	  upper_bnd_unit	  "m"
+	  lower_bnd		  "-init_pos"
+	  lower_bnd_unit	  "m"
+	  stiff_up		  "stiffness"
+	  stiff_up_unit		  "N/m"
+	  stiff_low		  "stiffness"
+	  stiff_low_unit	  "N/m"
+	  D_up			  "damping"
+	  D_up_unit		  "N/(m/s)"
+	  D_low			  "damping"
+	  D_low_unit		  "N/(m/s)"
+	  contact_force_Log	  "off"
+	  rel_displacement_Log	  "off"
+	  LocalVarNames		  "|contact_force|rel_displacement"
+	  LocalVarDescs		  "|Contact force (N)|Slider-case relative displacement (m)"
+	  LocalVarLogging	  "[0 0]"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  Tag			  "PMCPort"
+	  Position		  [785, 256, 815, 274]
+	  Orientation		  "left"
+	  ForegroundColor	  "magenta"
+	  Port			  "1"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "R"
+	  Tag			  "PMCPort"
+	  Position		  [785, 186, 815, 204]
+	  Orientation		  "left"
+	  ForegroundColor	  "magenta"
+	  Port			  "2"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  Tag			  "PMCPort"
+	  Position		  [30, 236, 60, 254]
+	  ForegroundColor	  "magenta"
+	  Port			  "3"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "C"
+	  Tag			  "PMCPort"
+	  Position		  [25, 181, 55, 199]
+	  ForegroundColor	  "magenta"
+	  Port			  "4"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [360, 120; 375, 0; 0, 75; 35, 0]
+	  DstBlock		  "R"
+	  DstPort		  RConn1
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    Points		    [360, 200; 0, -80]
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Translational\nHydro-Mechanical\nConverter1"
+	      SrcPort		      RConn1
+	      Points		      [0, -15; -75, 0]
+	    }
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      Labels		      [2, 0]
+	      SrcBlock		      "Translational\nHydro-Mechanical\nConverter"
+	      SrcPort		      RConn1
+	      Points		      [40, 0; 0, -10]
+	    }
+	  }
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Translational Hard\nStop"
+	    SrcPort		    LConn1
+	    Points		    [45, 0]
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Translational\nHydro-Mechanical\nConverter1"
+	  SrcPort		  LConn1
+	  Points		  [50, 0; 0, -175; -460, 0]
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    Points		    [205, 120; 0, 70; -100, 0; 0, -160]
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Translational\nHydro-Mechanical\nConverter"
+	      SrcPort		      LConn1
+	      Points		      [-40, 0; 0, -80]
+	    }
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      Labels		      [1, 0]
+	      SrcBlock		      "Translational Hard\nStop"
+	      SrcPort		      RConn1
+	      Points		      [-40, 0]
+	    }
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    Points		    [0, 160]
+	    DstBlock		    "C"
+	    DstPort		    RConn1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "A"
+	  SrcPort		  RConn1
+	  Points		  [130, 0; 0, -25]
+	  DstBlock		  "Translational\nHydro-Mechanical\nConverter"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  Points		  [-210, 0; 0, -40]
+	  DstBlock		  "Translational\nHydro-Mechanical\nConverter1"
+	  DstPort		  LConn2
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Custom Double-Acting\nHydraulic Motor for Hip"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [590, 79, 665, 166]
+      Orientation	      "left"
+      NamePlacement	      "alternate"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskType		      "Hydraulic Double-Acting Cylinder, Custom Model"
+      MaskDescription	      "The model is built entirely of Foundation Library blocks and accounts for hard stops and fluid consumption due to piston motion."
+      MaskPromptString	      "Displacement (m^3/rad)|Stroke (rad)|Initial position (rad)|Contact stiffness (Nm/rad)|Contact damping (Nm*s/rad)|Damping Coef (Nm*s/rad)"
+      MaskStyleString	      "edit,edit,edit,edit,edit,edit"
+      MaskTunableValueString  "on,on,on,on,on,on"
+      MaskCallbackString      "|||||"
+      MaskEnableString	      "on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on"
+      MaskVarAliasString      ",,,,,"
+      MaskVariables	      "Displacement=@1;stroke=@2;init_pos=@3;stiffness=@4;damping=@5;Damping_Coef=@6;"
+      MaskDisplay	      "plot([73.6992110911092;78.3372264117062;83.4855098283815;89.0944805574945;95.1101211447486;101.474497682805;108.12631774648;115.001520672305;122.033894497737;129.15571361855;136.298391023429;143.39313882438;150.371630721695;157.166660023573;163.712786883295;169.946968520725;175.809166358744;181.242924227569;186.195912068529;190.620429901137;194.473867199977;197.719113257359;200.324914579718;202.266175875843;203.524201738252;204.086876690183;203.948781864259;203.111247189144;201.582338581603;199.376780267312;196.51581297852;193.02698939418;188.943908792596;184.305893471999;179.157610055324;173.548639326211;167.532998738957;161.1686222009;154.516802137226;147.6415992114;140.609225385968;133.487406265155;126.344728860276;119.249981059326;112.27148916201;105.476459860132;98.9303330004107;92.6961513629807;86.8339535249614;81.4001956561362;76.4472078151762;72.0226899825683;70.8644989508936], [212.831540230622;218.265298099447;223.218285940407;227.642803773015;231.496241071855;234.741487129237;237.347288451596;239.288549747721;240.54657561013;241.109250562061;240.971155736137;240.133621061022;238.604712453481;236.39915413919;233.538186850398;230.049363266058;225.966282664474;221.328267343877;216.179983927202;210.571013198089;204.555372610835;198.190996072778;191.539176009104;184.663973083278;177.631599257846;170.509780137033;163.367102732154;156.272354931204;149.293863033888;142.49883373201;135.952706872289;129.718525234859;123.856327396839;118.422569528014;113.469581687054;109.045063854446;105.191626555606;101.946380498224;99.3405791758655;97.3993178797401;96.1412920173311;95.5786170654003;95.7167118913243;96.5542465664391;98.0831551739803;100.288713488271;103.149680777063;106.638504361403;110.721584962987;115.359600283584;120.50788370026;126.116854429373;127.792411177503])\nplot([0;133.223854936659;133.223854936659], [255.34572196193;255.34572196193;241.172971436754])\nplot([73.6983027309179;133.223854936659;70.8637526258826], [212.827470386401;170.309218810871;127.790967235342])\npatch([110.547454096377;153.065705671906;133.223854936659;110.547454096377], [238.338421331719;238.338421331719;209.992920281366;238.338421331719], [0;0;0])\nplot([110.547454096377;153.065705671906;133.223854936659;110.547454096377], [238.338421331719;238.338421331719;209.992920281366;238.338421331719])\npatch([110.547454096377;153.065705671906;133.223854936659;110.547454096377], [99.4454661849887;99.4454661849887;127.790967235342;99.4454661849887], [0;0;0])\nplot([110.547454096377;153.065705671906;133.223854936659;110.547454096377], [99.4454661849887;99.4454661849887;127.790967235342;99.4454661849887])\nplot([204.087607562542;240.936758928001;240.936758928001;204.087607562542;204.087607562542], [178.812869125977;178.812869125977;161.805568495765;161.805568495765;178.812869125977])\nplot([5.66910021007061;133.223854936659;133.223854936659], [85.2727156598121;85.2727156598121;96.6109160799534])\nplot([240.936758928001;283.455010503531], [170.309218810871;170.309218810871])\npatch([2.59833759628236;286.525773117319;286.525773117319;2.59833759628236;2.59833759628236;3.07076261378825;3.07076261378825;286.053348099813;286.053348099813;3.07076261378825;2.59833759628236], [340.618437621743;340.618437621743;0;5.6843418860808e-14;340.618437621743;340.146012604237;0.472425017505941;0.472425017505884;340.146012604237;340.146012604237;340.618437621743], [1;1;1])\n;color('red'); \n"
+      MaskIconFrame	      off
+      MaskIconOpaque	      off
+      MaskIconRotate	      "port"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "1.432e-5|270/180*pi|135/180*pi|1e7|1e5|1.5"
+      MaskTabNameString	      ",,,,,"
+      System {
+	Name			"Custom Double-Acting\nHydraulic Motor for Hip"
+	Location		[392, 205, 1232, 583]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rotational\nHydro-Mechanical\nConverter"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [260, 190, 300, 230]
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Rotational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Rotational\nHydro-Mechanical\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "converter_rot"
+	  SchemaVersion		  "1"
+	  D			  "Displacement"
+	  D_unit		  "m^3/rad"
+	  or			  "1"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  torque_Log		  "off"
+	  ang_velocity_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|torque|ang_velocity|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output torque (N*m)|Shaft angular velocity (rad/s)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rotational\nHydro-Mechanical\nConverter1"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [455, 190, 495, 230]
+	  Orientation		  "left"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Rotational\nHydro-Mechanical\nConverter"
+	  SourceType		  "Rotational\nHydro-Mechanical\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "converter_rot"
+	  SchemaVersion		  "1"
+	  D			  "Displacement"
+	  D_unit		  "m^3/rad"
+	  or			  "2"
+	  or_unit		  "1"
+	  flow_rate_Log		  "off"
+	  pressure_Log		  "off"
+	  torque_Log		  "off"
+	  ang_velocity_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pressure|torque|ang_velocity|power"
+	  LocalVarDescs		  "|Flow rate into the chamber (m^3/s)|Pressure at the inlet (Pa)|Output torque (N*m)|Shaft angular velocity (rad/s)|Power (W)"
+	  LocalVarLogging	  "[0 0 0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rotational Damper"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [265, 51, 305, 79]
+	  Orientation		  "left"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "fl_lib/Mechanical/Rotational Elements/Rotational Damper"
+	  SourceType		  "Rotational Damper"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "damper_rot"
+	  SchemaVersion		  "1"
+	  D			  "Damping_Coef"
+	  D_unit		  "N*m/(rad/s)"
+	  torque_Log		  "off"
+	  velocity_Log		  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|torque|velocity|power"
+	  LocalVarDescs		  "|Damping torque (N*m)|Damper relative velocity (rad/s)|Power dissipated in the damper (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rotational Hard Stop"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [260, 106, 300, 134]
+	  Orientation		  "left"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "fl_lib/Mechanical/Rotational Elements/Rotational Hard Stop"
+	  SourceType		  "Rotational Hard Stop"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "hardstop_rot"
+	  SchemaVersion		  "1"
+	  upper_bnd		  "stroke - init_pos"
+	  upper_bnd_unit	  "rad"
+	  lower_bnd		  "-init_pos"
+	  lower_bnd_unit	  "rad"
+	  stiff_up		  "stiffness"
+	  stiff_up_unit		  "N*m/rad"
+	  stiff_neg		  "stiffness"
+	  stiff_neg_unit	  "N*m/rad"
+	  D_up			  "damping"
+	  D_up_unit		  "N*m/(rad/s)"
+	  D_low			  "damping"
+	  D_low_unit		  "N*m/(rad/s)"
+	  contact_torque_Log	  "off"
+	  rel_angle_Log		  "off"
+	  LocalVarNames		  "|contact_torque|rel_angle"
+	  LocalVarDescs		  "|Contact torque (N*m)|Slider-case relative angle (rad)"
+	  LocalVarLogging	  "[0 0]"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  Tag			  "PMCPort"
+	  Position		  [30, 236, 60, 254]
+	  ForegroundColor	  "magenta"
+	  Port			  "1"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  Tag			  "PMCPort"
+	  Position		  [785, 256, 815, 274]
+	  Orientation		  "left"
+	  ForegroundColor	  "magenta"
+	  Port			  "2"
+	  Side			  "Left"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "C"
+	  Tag			  "PMCPort"
+	  Position		  [25, 181, 55, 199]
+	  ForegroundColor	  "magenta"
+	  Port			  "3"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "S"
+	  Tag			  "PMCPort"
+	  Position		  [785, 186, 815, 204]
+	  Orientation		  "left"
+	  ForegroundColor	  "magenta"
+	  Port			  "4"
+	  Side			  "Right"
+	}
+	Line {
+	  LineType		  "Connection"
+	  Points		  [360, 120; 375, 0; 0, 75; 35, 0]
+	  DstBlock		  "S"
+	  DstPort		  RConn1
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    SrcBlock		    "Rotational Hard Stop"
+	    SrcPort		    LConn1
+	    Points		    [45, 0]
+	  }
+	  Branch {
+	    ConnectType		    "SRC_DEST"
+	    Points		    [360, 200; 0, -80]
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      Labels		      [2, 0]
+	      SrcBlock		      "Rotational\nHydro-Mechanical\nConverter"
+	      SrcPort		      RConn1
+	      Points		      [45, 0; 0, -10]
+	    }
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Rotational\nHydro-Mechanical\nConverter1"
+	      SrcPort		      RConn1
+	      Points		      [-80, 0; 0, -10]
+	    }
+	  }
+	  Branch {
+	    ConnectType		    "SRC_SRC"
+	    Points		    [0, -55]
+	    DstBlock		    "Rotational Damper"
+	    DstPort		    LConn1
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rotational\nHydro-Mechanical\nConverter"
+	  SrcPort		  LConn1
+	  Points		  [-40, 0; 0, -75]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    Points		    [0, -5]
+	    Branch {
+	      ConnectType	      "DEST_SRC"
+	      Points		      [0, 70; -100, 0; 0, -160]
+	      Branch {
+		ConnectType		"DEST_SRC"
+		Points			[0, 160]
+		DstBlock		"C"
+		DstPort			RConn1
+	      }
+	      Branch {
+		ConnectType		"DEST_DEST"
+		SrcBlock		"Rotational\nHydro-Mechanical\nConverter1"
+		SrcPort			LConn1
+		Points			[55, 0; 0, -170; -460, 0]
+	      }
+	    }
+	    Branch {
+	      ConnectType	      "DEST_DEST"
+	      SrcBlock		      "Rotational Hard Stop"
+	      SrcPort		      RConn1
+	      Points		      [-40, 0]
+	    }
+	  }
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    SrcBlock		    "Rotational Damper"
+	    SrcPort		    RConn1
+	    Points		    [-45, 0; 0, 60]
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "A"
+	  SrcPort		  RConn1
+	  Points		  [130, 0; 0, -25]
+	  DstBlock		  "Rotational\nHydro-Mechanical\nConverter"
+	  DstPort		  LConn2
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  Points		  [-210, 0; 0, -45]
+	  DstBlock		  "Rotational\nHydro-Mechanical\nConverter1"
+	  DstPort		  LConn2
+	}
+	Annotation {
+	  Position		  [396, 68]
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Ground"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [310, 110, 350, 150]
+      Orientation	      "down"
+      UserDataPersistent      on
+      UserData		      "DataTag0"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Bodies/Ground"
+      SourceType	      "msb"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      LeftPortType	      "env"
+      RightPortType	      "workingframe"
+      PhysicalDomain	      "Mechanical"
+      DialogClass	      "GroundBlock"
+      ClassName		      "Ground"
+      CoordPosition	      "[0 0 0]"
+      CoordPositionUnits      "m"
+      StateVectorMgrId	      "-1"
+      MachineId		      "[0 0]"
+      ShowEnvPort	      on
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "HFE LF\nJoint Sensor"
+      Ports		      [0, 5, 0, 0, 0, 1]
+      Position		      [400, 318, 445, 372]
+      NamePlacement	      "alternate"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Sensors & \nActuators/Joint Sensor"
+      SourceType	      "msb"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      PhysicalDomain	      "Mechanical"
+      PortType		      "blob"
+      Muxed		      "off"
+      Pose		      "off"
+      Angle		      "on"
+      AngleUnits	      "rad"
+      ArcVelocity	      "on"
+      ArcVelocityUnits	      "rad/s"
+      ArcAcceleration	      "off"
+      ArcAccelerationUnits    "rad/s^2"
+      CoordPosition	      "on"
+      CoordPositionUnits      "m"
+      Velocity		      "off"
+      VelocityUnits	      "m/s"
+      Acceleration	      "off"
+      AccelerationUnits	      "m/s^2"
+      Quaternion	      "on"
+      QuaternionDT	      "off"
+      QuaternionDDT	      "off"
+      QuaternionUnits	      "off"
+      OutputVector	      "[ 1 ]"
+      ActiveIO		      "on"
+      Width		      "9"
+      ClassName		      "JointSensor"
+      DialogClass	      "MechanicalSensorBlock"
+      Primitive		      "R1"
+      Force		      "off"
+      ForceUnits	      "N"
+      Torque		      "on"
+      TorqueUnits	      "N*m"
+      ReferenceFrame	      "Absolute (INERTIAL)"
+      ReactionSensedSide      "Base"
+      ReactionReferenceFrame  "Absolute (World)"
+      ReactionForce	      "on"
+      ReactionForceUnits      "N"
+      ReactionMoment	      "on"
+      ReactionMomentUnits     "N*m"
+      Port {
+	PortNumber		1
+	LinearAnalysisOutput	on
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HFE LF\nangular velocity"
+      Ports		      [1]
+      Position		      [620, 359, 650, 391]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [291, 395, 615, 639]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "-2.5"
+      YMax		      "0.25"
+      SaveName		      "ScopeData10"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HFE LF Hip\nReaction Forces"
+      Ports		      [1]
+      Position		      [535, 554, 565, 586]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [948, 378, 1272, 617]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "-40"
+      YMax		      "40"
+      SaveName		      "ScopeData6"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HFE LF Hip\nReaction Torque"
+      Ports		      [1]
+      Position		      [535, 484, 565, 516]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [667, 77, 991, 316]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "-0.4"
+      YMax		      "0.3"
+      SaveName		      "ScopeData7"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HFE LF Hip Torque"
+      Ports		      [1]
+      Position		      [670, 419, 700, 451]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [951, 81, 1275, 320]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "-7.5"
+      YMax		      "7.5"
+      SaveName		      "ScopeData4"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "HFE LF angle"
+      Ports		      [1]
+      Position		      [555, 289, 585, 321]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [299, 69, 623, 313]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "-2.5"
+      YMax		      "0.25"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "KFE LF\nJoint Sensor"
+      Ports		      [0, 2, 0, 0, 0, 1]
+      Position		      [415, 840, 455, 880]
+      NamePlacement	      "alternate"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Sensors & \nActuators/Joint Sensor"
+      SourceType	      "msb"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      PhysicalDomain	      "Mechanical"
+      PortType		      "blob"
+      Muxed		      "off"
+      Pose		      "off"
+      Angle		      "on"
+      AngleUnits	      "rad"
+      ArcVelocity	      "on"
+      ArcVelocityUnits	      "rad/s"
+      ArcAcceleration	      "off"
+      ArcAccelerationUnits    "rad/s^2"
+      CoordPosition	      "on"
+      CoordPositionUnits      "m"
+      Velocity		      "off"
+      VelocityUnits	      "m/s"
+      Acceleration	      "off"
+      AccelerationUnits	      "m/s^2"
+      Quaternion	      "on"
+      QuaternionDT	      "off"
+      QuaternionDDT	      "off"
+      QuaternionUnits	      "off"
+      OutputVector	      "[ 1 ]"
+      ActiveIO		      "on"
+      Width		      "2"
+      ClassName		      "JointSensor"
+      DialogClass	      "MechanicalSensorBlock"
+      Primitive		      "R1"
+      Force		      "off"
+      ForceUnits	      "N"
+      Torque		      "off"
+      TorqueUnits	      "N*m"
+      ReferenceFrame	      "Absolute (INERTIAL)"
+      ReactionSensedSide      "Base"
+      ReactionReferenceFrame  "Absolute (World)"
+      ReactionForce	      "off"
+      ReactionForceUnits      "N"
+      ReactionMoment	      "off"
+      ReactionMomentUnits     "N*m"
+      Port {
+	PortNumber		1
+	LinearAnalysisOutput	on
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "KFE LF Joint\nSpring & Damper"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [375, 665, 425, 715]
+      DialogController	      "MECH.DynMechDlgSource"
+      FontName		      "Verdana"
+      FontSize		      11
+      SourceBlock	      "mblibv1/Force \nElements/Joint Spring & Damper"
+      SourceType	      "msb"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ClassName		      "JointSpringDamper"
+      DialogClass	      "JointSpringDamper"
+      JFEParameters	      "P1$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#P3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R1$true$0$0.5$0$m$m/s$N$rad$rad/s$N*m#R2$false$0$0$0$m$m/s$N$deg$deg/s$N*m#R3$false$0$0$0$m$m/s$N$deg$deg/s$N*m#S$false$0$0$0$m$m/s$N$deg$deg/s$N*m"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "KFE LF Knee Lever"
+      Ports		      [1]
+      Position		      [725, 909, 755, 941]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [353, 734, 677, 973]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      TimeRange		      "10"
+      YMin		      "0.005"
+      YMax		      "0.04"
+      SaveName		      "ScopeData9"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "KFE LF angle"
+      Ports		      [1]
+      Position		      [520, 829, 550, 861]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [32, 742, 356, 981]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "-3.5"
+      YMax		      "3.5"
+      SaveName		      "ScopeData8"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "KFE LF angular velocity"
+      Ports		      [1]
+      Position		      [590, 1024, 620, 1056]
+      NamePlacement	      "alternate"
+      Floating		      off
+      Location		      [610, 395, 934, 634]
+      Open		      on
+      NumInputPorts	      "1"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+      }
+      YMin		      "-3.5"
+      YMax		      "3.5"
+      SaveName		      "ScopeData1"
+      DataFormat	      "StructureWithTime"
+      LimitDataPoints	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      "M-S-Function"
+      Name		      "Level-2 M-file\nS-Function1"
+      Ports		      [1, 1]
+      Position		      [520, 902, 665, 948]
+      FunctionName	      "HyQ2Max_KLev_PolFit_SFcn"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Lower Leg\nnon compliant foot"
+      Ports		      [0, 0, 0, 0, 0, 2, 1]
+      Position		      [290, 930, 330, 990]
+      Orientation	      "down"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Bodies/Body"
+      SourceType	      "msb"
+      PhysicalDomain	      "mechanical"
+      SubClassName	      "Unknown"
+      LeftPortType	      "workingframe"
+      RightPortType	      "workingframe"
+      LConnTagsString	      "CS3|CS1"
+      RConnTagsString	      "CS2"
+      ClassName		      "Body"
+      DialogClass	      "MechanicalBodyBlock"
+      Mass		      "L_LegMb"
+      MassUnits		      "kg"
+      InertiaUnits	      "kg*m^2"
+      Inertia		      "L_LegInertiab_CAD"
+      Shape		      "Cylinder"
+      ShapeDims		      "[1 1]"
+      ShapeUnits	      "m"
+      ShapeUse		      "false"
+      Density		      "1"
+      DensityUnits	      "kg/m^3"
+      DensityUse	      "false"
+      CG		      "Left$CG$L_LegCogb_CAD$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$World$false"
+      WorkingFrames	      "Left$CS3$[0.0262 0.0216 0]$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$World$true#Left$CS1$[0 0  0]$Adjoining$Adjoining$m$[-90 180 0]$Euler Z-X-Z$deg$World$true#Right$CS2$[0.38009 0 0]$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$World$true"
+      CGPos		      "L_LegCogb_CAD"
+      CGRot		      "[-90 180 0]"
+      CS0Pos		      "[]"
+      CS0Rot		      "[]"
+      CS1Pos		      "[0 0  0]"
+      CS1Rot		      "[-90 180 0]"
+      CS2Pos		      "[0.38009 0 0]"
+      CS2Rot		      "[-90 180 0]"
+      CS3Pos		      "[0.0262 0.0216 0]"
+      CS3Rot		      "[-90 180 0]"
+      CS4Pos		      "[]"
+      CS4Rot		      "[]"
+      CS5Pos		      "[]"
+      CS5Rot		      "[]"
+      CS6Pos		      "[]"
+      CS6Rot		      "[]"
+      CS7Pos		      "[]"
+      CS7Rot		      "[]"
+      CS8Pos		      "[]"
+      CS8Rot		      "[]"
+      CS9Pos		      "[]"
+      CS9Rot		      "[]"
+      CS10Pos		      "[]"
+      CS10Rot		      "[]"
+      CS11Pos		      "[]"
+      CS11Rot		      "[]"
+      CS12Pos		      "[]"
+      CS12Rot		      "[]"
+      CS13Pos		      "[]"
+      CS13Rot		      "[]"
+      CS14Pos		      "[]"
+      CS14Rot		      "[]"
+      CS15Pos		      "[]"
+      CS15Rot		      "[]"
+      CS16Pos		      "[]"
+      CS16Rot		      "[]"
+      CS17Pos		      "[]"
+      CS17Rot		      "[]"
+      CS18Pos		      "[]"
+      CS18Rot		      "[]"
+      CS19Pos		      "[]"
+      CS19Rot		      "[]"
+      CS20Pos		      "[]"
+      CS20Rot		      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Machine\nEnvironment"
+      Tag		      "Factory ground"
+      Ports		      [0, 0, 0, 0, 0, 0, 1]
+      Position		      [220, 60, 260, 80]
+      NamePlacement	      "alternate"
+      DialogController	      "MECH.DialogSource"
+      SourceBlock	      "mblibv1/Bodies/Machine\nEnvironment"
+      SourceType	      "Mechanical"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      PortType		      "env"
+      PhysicalDomain	      "Mechanical"
+      ClassName		      "Environment"
+      DialogTemplateClass     "MECH.MachineEnvironment"
+      SyncWhenCopied	      "off"
+      Gravity		      "[0 -9.81 0]"
+      GravityUnits	      "m/s^2"
+      GravityAsSignal	      off
+      Dimensionality	      "Auto-detect"
+      AnalysisType	      "Forward dynamics"
+      LinearAssemblyTolerance "1e-3"
+      LinearAssemblyToleranceUnits "m"
+      AngularAssemblyTolerance "1e-3"
+      AngularAssemblyToleranceUnits "rad"
+      ConstraintSolverType    "Stabilizing"
+      ConstraintRelTolerance  "1e-4"
+      ConstraintAbsTolerance  "1e-4"
+      UseRobustSingularityHandling off
+      RedundancyAnalysisToleranceType "Automatically select tolerance"
+      RedundancyAnalysisTolerance "1e-14"
+      StatePerturbationType   "Fixed"
+      PerturbationSize	      "1e-5"
+      VisualizeMachine	      on
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mechanical\nRotational Reference"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [530, 25, 550, 45]
+      Orientation	      "up"
+      NamePlacement	      "alternate"
+      ShowName		      off
+      DialogController	      "NetworkEngine.DynNeDlgSource"
+      SourceBlock	      "fl_lib/Mechanical/Rotational Elements/Mechanical\nRotational Reference"
+      SourceType	      "Mechanical\nRotational Reference"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ClassName		      "reference_rot"
+      SchemaVersion	      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Mechanical\nTranslational\nReference1"
+      Ports		      [0, 0, 0, 0, 0, 1]
+      Position		      [90, 815, 110, 835]
+      Orientation	      "down"
+      ShowName		      off
+      DialogController	      "NetworkEngine.DynNeDlgSource"
+      SourceBlock	      "fl_lib/Mechanical/Translational\nElements/Mechanical\nTranslational\nReference"
+      SourceType	      "Mechanical\nTranslational\nReference"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ClassName		      "reference_transl"
+      SchemaVersion	      "1"
+      LocalVarLogging	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Pressures\nfor Knee"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [75, 588, 140, 642]
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"Pressures\nfor Knee"
+	Location		[631, 257, 1018, 708]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain A"
+	  Position		  [100, 280, 130, 310]
+	  Orientation		  "up"
+	  ShowName		  off
+	  Gain			  "1.2e5"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain B"
+	  Position		  [250, 280, 280, 310]
+	  Orientation		  "up"
+	  NamePlacement		  "alternate"
+	  Gain			  "2.5e5"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Hydraulic Reference"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [175, 210, 215, 235]
+	  Orientation		  "down"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Reference"
+	  SourceType		  "Hydraulic Reference"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "hydro_reference"
+	  SchemaVersion		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Hydraulic\nPressure Source A"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [105, 140, 145, 180]
+	  Orientation		  "down"
+	  NamePlacement		  "alternate"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Sensors\nand Sources/Ideal Hydraulic\nPressure Source"
+	  SourceType		  "Ideal Hydraulic\nPressure Source"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "pressure_src"
+	  SchemaVersion		  "1"
+	  flow_rate_Log		  "off"
+	  pr_differential_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pr_differential|power"
+	  LocalVarDescs		  "|Flow rate through the source (m^3/s)|Pressure differential across the source (Pa)|Source power (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Hydraulic\nPressure Source B"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [255, 140, 295, 180]
+	  Orientation		  "down"
+	  NamePlacement		  "alternate"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Sensors\nand Sources/Ideal Hydraulic\nPressure Source"
+	  SourceType		  "Ideal Hydraulic\nPressure Source"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "pressure_src"
+	  SchemaVersion		  "1"
+	  flow_rate_Log		  "off"
+	  pr_differential_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pr_differential|power"
+	  LocalVarDescs		  "|Flow rate through the source (m^3/s)|Pressure differential across the source (Pa)|Source power (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  Ports			  [0, 1]
+	  Position		  [320, 280, 350, 310]
+	  Orientation		  "left"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  slope			  "1"
+	  start			  "1"
+	  X0			  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Signal Builder"
+	  Tag			  "STV Subsys"
+	  Ports			  [0, 2]
+	  Position		  [144, 350, 226, 430]
+	  Orientation		  "up"
+	  CopyFcn		  "sigbuilder_block('copy');"
+	  DeleteFcn		  "sigbuilder_block('delete');"
+	  LoadFcn		  "sigbuilder_block('load');"
+	  ModelCloseFcn		  "sigbuilder_block('modelClose');"
+	  PreSaveFcn		  "sigbuilder_block('preSave');"
+	  StartFcn		  "sigbuilder_block('start');"
+	  StopFcn		  "sigbuilder_block('stop');"
+	  NameChangeFcn		  "sigbuilder_block('namechange');"
+	  ClipboardFcn		  "sigbuilder_block('clipboard');"
+	  OpenFcn		  "sigbuilder_block('open',[388.5 359.25 550.5 371.25 ]);"
+	  CloseFcn		  "sigbuilder_block('close');"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskType		  "Sigbuilder block"
+	  MaskDescription	  "Sigbuilder GUI"
+	  MaskInitialization	  "if ~strcmp(get_param(bdroot(gcbh),'SimulationStatus'),'stopped') tuvar = sigbuilder_block('maskInit'); end"
+	  MaskDisplay		  "plot(0,0,100,100,[10,10,40,40,10],[80,20,20,80,80],[40,10],[50,50], [40,27,10],[65,72,56],[40,25,25,10],[28,28,43,43]);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "port"
+	  MaskIconUnits		  "autoscale"
+	  MaskCapabilities	  "slmaskedcaps(gcbh)"
+	  System {
+	    Name		    "Signal Builder"
+	    Location		    [480, 85, 980, 386]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux"
+	      Tag		      "STV Demux"
+	      Ports		      [1, 2]
+	      Position		      [150, 40, 160, 615]
+	      Outputs		      "2"
+	    }
+	    Block {
+	      BlockType		      FromWorkspace
+	      Name		      "FromWs"
+	      Tag		      "STV FromWs"
+	      Position		      [30, 300, 115, 350]
+	      VariableName	      "tuvar"
+	      SampleTime	      "0"
+	      ZeroCross		      on
+	      SigBuilderData	      "DataTag1"
+	      VnvData		      "DataTag2"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Signal 1"
+	      Tag		      "STV Outport"
+	      Position		      [280, 30, 300, 40]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Signal 2"
+	      Tag		      "STV Outport"
+	      Position		      [280, 60, 300, 70]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      1
+	      Points		      [50, 0; 0, -150]
+	      DstBlock		      "Signal 1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "FromWs"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      DstBlock		      "Demux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      2
+	      DstBlock		      "Signal 2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Simulink-PS\nConverter"
+	  Ports			  [1, 0, 0, 0, 0, 0, 1]
+	  Position		  [100, 230, 130, 260]
+	  Orientation		  "up"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Simulink-PS\nConverter"
+	  SourceType		  "Simulink-PS\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "output"
+	  SubClassName		  "ps_input"
+	  Unit			  "N/m^2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Simulink-PS\nConverter1"
+	  Ports			  [1, 0, 0, 0, 0, 0, 1]
+	  Position		  [250, 225, 280, 255]
+	  Orientation		  "up"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Simulink-PS\nConverter"
+	  SourceType		  "Simulink-PS\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "output"
+	  SubClassName		  "ps_input"
+	  Unit			  "N/m^2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Solver\nConfiguration"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [20, 184, 65, 216]
+	  BackgroundColor	  "yellow"
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Solver\nConfiguration"
+	  SourceType		  "Solver\nConfiguration"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "generic"
+	  SubClassName		  "solver"
+	  ResidualTolerance	  "1e-9"
+	  MaxNonlinIter		  "12"
+	  MaxModeIter		  "2"
+	  DoFixedCost		  off
+	  DoDC			  on
+	  LinearAlgebra		  "Full"
+	  Accelerate		  off
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  Position		  [110, 25, 140, 40]
+	  Orientation		  "down"
+	  Port			  "1"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  Position		  [260, 25, 290, 40]
+	  Orientation		  "down"
+	  Port			  "2"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Simulink-PS\nConverter"
+	  SrcPort		  RConn1
+	  Points		  [0, -15]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Ideal Hydraulic\nPressure Source A"
+	    DstPort		    RConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    SrcBlock		    "Solver\nConfiguration"
+	    SrcPort		    RConn1
+	    Points		    [35, 0]
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Simulink-PS\nConverter1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source B"
+	  DstPort		  RConn1
+	}
+	Line {
+	  SrcBlock		  "Signal Builder"
+	  SrcPort		  1
+	  Points		  [0, -15; -50, 0]
+	  DstBlock		  "Gain A"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "A"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source A"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source B"
+	  DstPort		  LConn1
+	}
+	Line {
+	  SrcBlock		  "Gain A"
+	  SrcPort		  1
+	  DstBlock		  "Simulink-PS\nConverter"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain B"
+	  SrcPort		  1
+	  DstBlock		  "Simulink-PS\nConverter1"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Ideal Hydraulic\nPressure Source B"
+	  SrcPort		  RConn2
+	  Points		  [-90, 0]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Ideal Hydraulic\nPressure Source A"
+	    DstPort		    RConn2
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Hydraulic Reference"
+	    DstPort		    LConn1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Signal Builder"
+	  SrcPort		  2
+	  Points		  [0, -15; 60, 0]
+	  DstBlock		  "Gain B"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Gain A      "
+	  Position		  [89, 295]
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Pressures Hip"
+      Ports		      [0, 0, 0, 0, 0, 1, 1]
+      Position		      [770, 53, 835, 107]
+      Orientation	      "left"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      System {
+	Name			"Pressures Hip"
+	Location		[631, 257, 1035, 716]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain A"
+	  Position		  [100, 280, 130, 310]
+	  Orientation		  "up"
+	  ShowName		  off
+	  Gain			  "5.5e5"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain B"
+	  Position		  [250, 280, 280, 310]
+	  Orientation		  "up"
+	  NamePlacement		  "alternate"
+	  Gain			  "2.8e5*1"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Hydraulic Reference"
+	  Ports			  [0, 0, 0, 0, 0, 1]
+	  Position		  [175, 210, 215, 235]
+	  Orientation		  "down"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Elements/Hydraulic Reference"
+	  SourceType		  "Hydraulic Reference"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "hydro_reference"
+	  SchemaVersion		  "1"
+	  LocalVarLogging	  "[]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Hydraulic\nPressure Source A"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [105, 140, 145, 180]
+	  Orientation		  "down"
+	  NamePlacement		  "alternate"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Sensors\nand Sources/Ideal Hydraulic\nPressure Source"
+	  SourceType		  "Ideal Hydraulic\nPressure Source"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "pressure_src"
+	  SchemaVersion		  "1"
+	  flow_rate_Log		  "off"
+	  pr_differential_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pr_differential|power"
+	  LocalVarDescs		  "|Flow rate through the source (m^3/s)|Pressure differential across the source (Pa)|Source power (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ideal Hydraulic\nPressure Source B"
+	  Ports			  [0, 0, 0, 0, 0, 1, 2]
+	  Position		  [255, 140, 295, 180]
+	  Orientation		  "down"
+	  NamePlacement		  "alternate"
+	  DialogController	  "NetworkEngine.DynNeDlgSource"
+	  SourceBlock		  "fl_lib/Hydraulic/Hydraulic Sensors\nand Sources/Ideal Hydraulic\nPressure Source"
+	  SourceType		  "Ideal Hydraulic\nPressure Source"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ClassName		  "pressure_src"
+	  SchemaVersion		  "1"
+	  flow_rate_Log		  "off"
+	  pr_differential_Log	  "off"
+	  power_Log		  "off"
+	  LocalVarNames		  "|flow_rate|pr_differential|power"
+	  LocalVarDescs		  "|Flow rate through the source (m^3/s)|Pressure differential across the source (Pa)|Source power (W)"
+	  LocalVarLogging	  "[0 0 0]"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  Ports			  [0, 1]
+	  Position		  [355, 260, 385, 290]
+	  Orientation		  "left"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  slope			  "1"
+	  start			  "1"
+	  X0			  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Signal Builder"
+	  Tag			  "STV Subsys"
+	  Ports			  [0, 2]
+	  Position		  [149, 350, 231, 430]
+	  Orientation		  "up"
+	  CopyFcn		  "sigbuilder_block('copy');"
+	  DeleteFcn		  "sigbuilder_block('delete');"
+	  LoadFcn		  "sigbuilder_block('load');"
+	  ModelCloseFcn		  "sigbuilder_block('modelClose');"
+	  PreSaveFcn		  "sigbuilder_block('preSave');"
+	  StartFcn		  "sigbuilder_block('start');"
+	  StopFcn		  "sigbuilder_block('stop');"
+	  NameChangeFcn		  "sigbuilder_block('namechange');"
+	  ClipboardFcn		  "sigbuilder_block('clipboard');"
+	  OpenFcn		  "sigbuilder_block('open',[388.5 359.25 550.5 371.25 ]);"
+	  CloseFcn		  "sigbuilder_block('close');"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskType		  "Sigbuilder block"
+	  MaskDescription	  "Sigbuilder GUI"
+	  MaskInitialization	  "if ~strcmp(get_param(bdroot(gcbh),'SimulationStatus'),'stopped') tuvar = sigbuilder_block('maskInit'); end"
+	  MaskDisplay		  "plot(0,0,100,100,[10,10,40,40,10],[80,20,20,80,80],[40,10],[50,50], [40,27,10],[65,72,56],[40,25,25,10],[28,28,43,43]);"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "port"
+	  MaskIconUnits		  "autoscale"
+	  MaskCapabilities	  "slmaskedcaps(gcbh)"
+	  System {
+	    Name		    "Signal Builder"
+	    Location		    [480, 85, 980, 386]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Demux
+	      Name		      "Demux"
+	      Tag		      "STV Demux"
+	      Ports		      [1, 2]
+	      Position		      [150, 32, 160, 603]
+	      Outputs		      "2"
+	    }
+	    Block {
+	      BlockType		      FromWorkspace
+	      Name		      "FromWs"
+	      Tag		      "STV FromWs"
+	      Position		      [30, 300, 115, 350]
+	      VariableName	      "tuvar"
+	      SampleTime	      "0"
+	      ZeroCross		      on
+	      SigBuilderData	      "DataTag3"
+	      VnvData		      "DataTag4"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Signal 1"
+	      Tag		      "STV Outport"
+	      Position		      [280, 30, 300, 40]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Signal 2"
+	      Tag		      "STV Outport"
+	      Position		      [280, 60, 300, 70]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      1
+	      Points		      [50, 0; 0, -140]
+	      DstBlock		      "Signal 1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "FromWs"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, -5]
+	      DstBlock		      "Demux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Demux"
+	      SrcPort		      2
+	      DstBlock		      "Signal 2"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Simulink-PS\nConverter"
+	  Ports			  [1, 0, 0, 0, 0, 0, 1]
+	  Position		  [100, 230, 130, 260]
+	  Orientation		  "up"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Simulink-PS\nConverter"
+	  SourceType		  "Simulink-PS\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "output"
+	  SubClassName		  "ps_input"
+	  Unit			  "N/m^2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Simulink-PS\nConverter1"
+	  Ports			  [1, 0, 0, 0, 0, 0, 1]
+	  Position		  [250, 225, 280, 255]
+	  Orientation		  "up"
+	  ShowName		  off
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Simulink-PS\nConverter"
+	  SourceType		  "Simulink-PS\nConverter"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "output"
+	  SubClassName		  "ps_input"
+	  Unit			  "N/m^2"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Solver\nConfiguration"
+	  Ports			  [0, 0, 0, 0, 0, 0, 1]
+	  Position		  [20, 184, 65, 216]
+	  BackgroundColor	  "yellow"
+	  DialogController	  "NetworkEngine.DynNeUtilDlgSource"
+	  SourceBlock		  "nesl_utility/Solver\nConfiguration"
+	  SourceType		  "Solver\nConfiguration"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  PhysicalDomain	  "network_engine_domain"
+	  LeftPortType		  "input"
+	  RightPortType		  "generic"
+	  SubClassName		  "solver"
+	  ResidualTolerance	  "1e-9"
+	  MaxNonlinIter		  "12"
+	  MaxModeIter		  "2"
+	  DoFixedCost		  off
+	  DoDC			  on
+	  LinearAlgebra		  "Full"
+	  Accelerate		  off
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "A"
+	  Position		  [110, 25, 140, 40]
+	  Orientation		  "down"
+	  Port			  "1"
+	  Side			  "Right"
+	}
+	Block {
+	  BlockType		  PMIOPort
+	  Name			  "B"
+	  Position		  [260, 25, 290, 40]
+	  Orientation		  "down"
+	  Port			  "2"
+	  Side			  "Left"
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Simulink-PS\nConverter"
+	  SrcPort		  RConn1
+	  Points		  [0, -15]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Ideal Hydraulic\nPressure Source A"
+	    DstPort		    RConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    SrcBlock		    "Solver\nConfiguration"
+	    SrcPort		    RConn1
+	    Points		    [35, 0]
+	  }
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Simulink-PS\nConverter1"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source B"
+	  DstPort		  RConn1
+	}
+	Line {
+	  SrcBlock		  "Signal Builder"
+	  SrcPort		  1
+	  Points		  [0, -10; -55, 0]
+	  DstBlock		  "Gain A"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "A"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source A"
+	  DstPort		  LConn1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "B"
+	  SrcPort		  RConn1
+	  DstBlock		  "Ideal Hydraulic\nPressure Source B"
+	  DstPort		  LConn1
+	}
+	Line {
+	  SrcBlock		  "Gain A"
+	  SrcPort		  1
+	  DstBlock		  "Simulink-PS\nConverter"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain B"
+	  SrcPort		  1
+	  DstBlock		  "Simulink-PS\nConverter1"
+	  DstPort		  1
+	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Ideal Hydraulic\nPressure Source B"
+	  SrcPort		  RConn2
+	  Points		  [-90, 0]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Ideal Hydraulic\nPressure Source A"
+	    DstPort		    RConn2
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Hydraulic Reference"
+	    DstPort		    LConn1
+	  }
+	}
+	Line {
+	  Labels		  [2, 0]
+	  SrcBlock		  "Signal Builder"
+	  SrcPort		  2
+	  Points		  [0, -15; 55, 0]
+	  DstBlock		  "Gain B"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Gain A      "
+	  Position		  [89, 295]
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Revolute\nHip\nHFE LF"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [317, 210, 373, 260]
+      Orientation	      "down"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Joints/Revolute"
+      SourceType	      "msb"
+      PhysicalDomain	      "mechanical"
+      SubClassName	      "Unknown"
+      LeftPortType	      "blob"
+      RightPortType	      "blob"
+      LConnTagsString	      "__newl0|SA1"
+      RConnTagsString	      "__newr0|SA1"
+      NumSAPorts	      "2"
+      CutJoint		      "off"
+      MarkAsCut		      "off"
+      Primitives	      "revolute"
+      PrimitiveProps	      "R1$World$[0 0 -1]$revolute"
+      ClassName		      "Joint"
+      DialogClass	      "JointBlock"
+      R1Axis		      "[0 0 -1]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Revolute\nKnee\nKFE LF"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [315, 780, 370, 830]
+      Orientation	      "down"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Joints/Revolute"
+      SourceType	      "msb"
+      PhysicalDomain	      "mechanical"
+      SubClassName	      "Unknown"
+      LeftPortType	      "blob"
+      RightPortType	      "blob"
+      LConnTagsString	      "__newl0|SA1"
+      RConnTagsString	      "__newr0|SA1"
+      NumSAPorts	      "2"
+      CutJoint		      "off"
+      MarkAsCut		      "off"
+      Primitives	      "revolute"
+      PrimitiveProps	      "R1$World$[0 0 -1]$revolute"
+      ClassName		      "Joint"
+      DialogClass	      "JointBlock"
+      R1Axis		      "[0 0 -1]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Revolute -\nRotational\nInterface"
+      Ports		      [0, 0, 0, 0, 0, 2, 1]
+      Position		      [460, 90, 500, 130]
+      Orientation	      "left"
+      DialogController	      "MECH.DynMechDlgSource"
+      FontName		      "Verdana"
+      FontSize		      11
+      SourceBlock	      "mblibv1/Interface \nElements/Revolute -\nRotational\nInterface"
+      SourceType	      "Revolute-Rotational Interface"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      ClassName		      "RevoluteRotationalInterface"
+      DialogClass	      "RevoluteRotationalInterface"
+      Primitive		      "R1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      Position		      [700, 964, 795, 996]
+      VariableName	      "KFE_ang_vel"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      Position		      [715, 809, 795, 841]
+      VariableName	      "LF_KFE_lever"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace2"
+      Position		      [155, 221, 240, 249]
+      VariableName	      "time"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Upper Leg"
+      Ports		      [0, 0, 0, 0, 0, 2, 2]
+      Position		      [290, 420, 330, 480]
+      Orientation	      "down"
+      DialogController	      "MECH.DynMechDlgSource"
+      SourceBlock	      "mblibv1/Bodies/Body"
+      SourceType	      "msb"
+      PhysicalDomain	      "mechanical"
+      SubClassName	      "Unknown"
+      LeftPortType	      "workingframe"
+      RightPortType	      "workingframe"
+      LConnTagsString	      "CS4|CS1"
+      RConnTagsString	      "CS3|CS2"
+      ClassName		      "Body"
+      DialogClass	      "MechanicalBodyBlock"
+      Mass		      "U_LegM"
+      MassUnits		      "kg"
+      InertiaUnits	      "kg*m^2"
+      Inertia		      "U_LegInertia_CAD"
+      Shape		      "Cylinder"
+      ShapeDims		      "[1 1]"
+      ShapeUnits	      "m"
+      ShapeUse		      "false"
+      Density		      "1"
+      DensityUnits	      "kg/m^3"
+      DensityUse	      "false"
+      CG		      "Left$CG$U_LegCog_CAD$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$WORLD$false"
+      WorkingFrames	      "Left$CS4$[-.041 -.005 0]$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$WORLD$true#Right$CS3$[.32  .023 0]$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$WORLD$true#Left$CS1$[0 0 0]$World$World$m$[-90 180 0]$Euler Z-X-Z$deg$World$true#Right$CS2$[.36 0 0]$CS1$CS1$m$[-90 180 0]$Euler Z-X-Z$deg$World$true"
+      CGPos		      "U_LegCog_CAD"
+      CGRot		      "[-90 180 0]"
+      CS0Pos		      "[]"
+      CS0Rot		      "[]"
+      CS1Pos		      "[0 0 0]"
+      CS1Rot		      "[-90 180 0]"
+      CS2Pos		      "[.36 0 0]"
+      CS2Rot		      "[-90 180 0]"
+      CS3Pos		      "[.32  .023 0]"
+      CS3Rot		      "[-90 180 0]"
+      CS4Pos		      "[-.041 -.005 0]"
+      CS4Rot		      "[-90 180 0]"
+      CS5Pos		      "[]"
+      CS5Rot		      "[]"
+      CS6Pos		      "[]"
+      CS6Rot		      "[]"
+      CS7Pos		      "[]"
+      CS7Rot		      "[]"
+      CS8Pos		      "[]"
+      CS8Rot		      "[]"
+      CS9Pos		      "[]"
+      CS9Rot		      "[]"
+      CS10Pos		      "[]"
+      CS10Rot		      "[]"
+      CS11Pos		      "[]"
+      CS11Rot		      "[]"
+      CS12Pos		      "[]"
+      CS12Rot		      "[]"
+      CS13Pos		      "[]"
+      CS13Rot		      "[]"
+      CS14Pos		      "[]"
+      CS14Rot		      "[]"
+      CS15Pos		      "[]"
+      CS15Rot		      "[]"
+      CS16Pos		      "[]"
+      CS16Rot		      "[]"
+      CS17Pos		      "[]"
+      CS17Rot		      "[]"
+      CS18Pos		      "[]"
+      CS18Rot		      "[]"
+      CS19Pos		      "[]"
+      CS19Rot		      "[]"
+      CS20Pos		      "[]"
+      CS20Rot		      "[]"
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      LConn1
+      Points		      [-25, 0]
+      DstBlock		      "Revolute\nHip\nHFE LF"
+      DstPort		      RConn2
+    }
+    Line {
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      1
+      Points		      [90, 0]
+      DstBlock		      "HFE LF angle"
+      DstPort		      1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Machine\nEnvironment"
+      SrcPort		      RConn1
+      Points		      [55, 0]
+      DstBlock		      "Ground"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Ground"
+      SrcPort		      RConn1
+      DstBlock		      "Revolute\nHip\nHFE LF"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Revolute\nHip\nHFE LF"
+      SrcPort		      RConn1
+      Points		      [0, 130]
+      DstBlock		      "Upper Leg"
+      DstPort		      LConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Upper Leg"
+      SrcPort		      RConn2
+      Points		      [0, 270]
+      DstBlock		      "Revolute\nKnee\nKFE LF"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "KFE LF\nJoint Sensor"
+      SrcPort		      LConn1
+      Points		      [-45, 0]
+      DstBlock		      "Revolute\nKnee\nKFE LF"
+      DstPort		      RConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Lower Leg\nnon compliant foot"
+      SrcPort		      LConn2
+      Points		      [0, -70]
+      DstBlock		      "Revolute\nKnee\nKFE LF"
+      DstPort		      RConn1
+    }
+    Line {
+      SrcBlock		      "KFE LF\nJoint Sensor"
+      SrcPort		      1
+      Points		      [0, -5; 30, 0]
+      Branch {
+	DstBlock		"KFE LF angle"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 80]
+	DstBlock		"Level-2 M-file\nS-Function1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Level-2 M-file\nS-Function1"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"KFE LF Knee Lever"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -100]
+	DstBlock		"To Workspace1"
+	DstPort			1
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Lower Leg\nnon compliant foot"
+      SrcPort		      LConn1
+      Points		      [-55, 0; 0, 70; -215, 0; 0, -75]
+      DstBlock		      "Body Force\nInterface for Lower leg"
+      DstPort		      LConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Revolute\nKnee\nKFE LF"
+      SrcPort		      LConn2
+      Points		      [0, -75]
+      DstBlock		      "KFE LF Joint\nSpring & Damper"
+      DstPort		      LConn1
+    }
+    Line {
+      Labels		      [0, 0]
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      5
+      Points		      [0, 205]
+      DstBlock		      "HFE LF Hip\nReaction Forces"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      4
+      Points		      [25, 0; 0, 145]
+      DstBlock		      "HFE LF Hip\nReaction Torque"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      3
+      Points		      [55, 0; 0, 90]
+      DstBlock		      "HFE LF Hip Torque"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "HFE LF\nJoint Sensor"
+      SrcPort		      2
+      Points		      [85, 0; 0, 40]
+      DstBlock		      "HFE LF\nangular velocity"
+      DstPort		      1
+    }
+    Line {
+      LineType		      "Connection"
+      Labels		      [2, 0]
+      SrcBlock		      "Body Force\nInterface for Lower leg"
+      SrcPort		      RConn2
+      Points		      [45, 0; 0, -530; 100, 0]
+      DstBlock		      "Upper Leg"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Upper Leg"
+      SrcPort		      RConn1
+      Points		      [0, 280; -85, 0; 0, 195; -165, 0; 0, -40]
+      DstBlock		      "Body Force\nInterface for Lower leg"
+      DstPort		      LConn3
+    }
+    Line {
+      SrcBlock		      "KFE LF\nJoint Sensor"
+      SrcPort		      2
+      Points		      [20, 0; 0, 105]
+      Branch {
+	Points			[0, 65]
+	DstBlock		"KFE LF angular velocity"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 5]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Clock"
+      SrcPort		      1
+      DstBlock		      "To Workspace2"
+      DstPort		      1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Pressures\nfor Knee"
+      SrcPort		      LConn1
+      Points		      [-25, 0; 0, 90]
+      DstBlock		      "Custom Double-Acting\nHydraulic Cylinder for Knee"
+      DstPort		      RConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Pressures\nfor Knee"
+      SrcPort		      RConn1
+      Points		      [20, 0; 0, 90]
+      DstBlock		      "Custom Double-Acting\nHydraulic Cylinder for Knee"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Body Force\nInterface for Lower leg"
+      SrcPort		      RConn1
+      Points		      [20, 0; 0, -95]
+      Branch {
+	ConnectType		"DEST_SRC"
+	Points			[0, -70]
+	DstBlock		"Custom Double-Acting\nHydraulic Cylinder for Knee"
+	DstPort			LConn2
+      }
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Mechanical\nTranslational\nReference1"
+	DstPort			LConn1
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Custom Double-Acting\nHydraulic Cylinder for Knee"
+      SrcPort		      RConn2
+      Points		      [-25, 0; 0, 160]
+      DstBlock		      "Body Force\nInterface for Lower leg"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Custom Double-Acting\nHydraulic Motor for Hip"
+      SrcPort		      LConn2
+      Points		      [170, 0]
+      DstBlock		      "Pressures Hip"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Revolute -\nRotational\nInterface"
+      SrcPort		      LConn2
+      Points		      [0, 25]
+      DstBlock		      "Custom Double-Acting\nHydraulic Motor for Hip"
+      DstPort		      RConn2
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Revolute -\nRotational\nInterface"
+      SrcPort		      LConn1
+      Points		      [25, 0]
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Custom Double-Acting\nHydraulic Motor for Hip"
+	DstPort			RConn1
+      }
+      Branch {
+	ConnectType		"DEST_SRC"
+	DstBlock		"Mechanical\nRotational Reference"
+	DstPort			LConn1
+      }
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Pressures Hip"
+      SrcPort		      RConn1
+      Points		      [-20, 0; 0, 20]
+      DstBlock		      "Custom Double-Acting\nHydraulic Motor for Hip"
+      DstPort		      LConn1
+    }
+    Line {
+      LineType		      "Connection"
+      SrcBlock		      "Revolute -\nRotational\nInterface"
+      SrcPort		      RConn1
+      Points		      [-30, 0; 0, 65; -55, 0]
+      DstBlock		      "Revolute\nHip\nHFE LF"
+      DstPort		      LConn2
+    }
+    Annotation {
+      Position		      [598, 70]
+    }
+  }
+}
+MatData {
+  NumRecords		  5
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    R ,   8    (     @         %    \"     $    !     0         %  0 $0    $   #,    =F5R:69Y0FQK4&%T:',   !V97)I9GE\";&M(86YD;&5S '9N=DUG<DED>           86-T:79E1W)O=7        !R97%$:7-P4')C;G0      &)L:T1I<W!-;V1E        9W)O=7!#;G0           !G<F]U<%)E<4-N=        &=R;W5P1$]/4E-I9       ;6]D96Q(              !B;&]C:T@              &]V97)I9&53971T:6YG<P        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )          X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX    P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !     0         )    \"        $ &L*I #@   #@    &    \"     8         !0    @    !     0    $         \"0    @       #P!>ZK0 X    P    !@    @    &          4    (               !          D         "
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    0!(   8    (     @         %    \"     $    !     0         %  0 %@    $   \":    9W)I9%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &1A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE          X    P    !@    @    $          4    (     0    (    !         !   @!O;@  #@   + )   &    \"     (         !0    @    !     @    $         !0 $  H    !    @@   'A$871A      !Y1&%T80      <W1E<%@      '-T97!9      !Y36EN        >4UA>        &-O;&]R      !L:6YE4W1Y;&4 ;&EN95=I9'1H &QA8F5L      !O=71);F1E>   86QL6$1A=&$  &%L;%E$871A           .    <     8    (    !@         %    \"     $    (     0         )    0               4K@>A>M1\\#]2N!Z%ZU'P/P        !         \"$         00!6N1^%Z%!1         )$ .    <     8    (    !@         %    \"     $    (     0         )    0                         ![%*Y'X7J$/TCA>A2N1^D_        \\#](X7H4KD?I/WL4KD?A>H0_           .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @    !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,     8    (    !          %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (            ^#\\.    .     8    (    !          %    \"     $    (     0         0    \"    %-I9VYA;\" Q#@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   \"@    !@    @    !          4    (     0    $    !          X   !P    !@    @    &          4    (     0    @    !          D   !               !2N!Z%ZU'P/U*X'H7K4? _         $         (0        !! %:Y'X7H4%$         D0 X   \"@    !@    @    !          4    (     0    $    !          X   !P    !@    @    &          4    (     0    @    !          D   !                          'L4KD?A>H0_2.%Z%*Y'Z3\\       #P/TCA>A2N1^D_>Q2N1^%ZA#\\           X   !H    !@    @    &          4    (     0    <    !          D    X                       00        !1 [%&X'H7K%T#L4;@>A>L;0.Q1N!Z%ZQ]         )$ .    :     8    (    !@         %    \"     $    '     0         )    .                         !(X7H4KD?I/TF['I.\"Y^\\_]BA<C\\+UZ#\\                     #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (               .    .     8    (    !@         %    \"     $    !     0         )    \"            /#_#@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P?PX   !(    !@    @    &          4    (     0    ,    !          D    8    V(%S1I3VYC\\          -B!<T:4]N8_#@   #     &    \"     0         !0    @    !     0    $         $  ! \"T    .    .     8    (    !@         %    \"     $    !     0         )    \"            /@_#@   #@    &    \"     0         !0    @    !    \"     $         $     @   !3:6=N86P@,@X    X    !@    @    &          4    (     0    $    !          D    (             $ .    F     8    (     0         %    \"     $    !     0         .    :     8    (    !@         %    \"     $    '     0         )    .                       $$         40.Q1N!Z%ZQ= [%&X'H7K&T#L4;@>A>L?0        \"1 #@   )@    &    \"     $         !0    @    !     0    $         #@   &@    &    \"     8         !0    @    !    !P    $         \"0   #@                         2.%Z%*Y'Z3])NQZ3@N?O/_8H7(_\"]>@_                      X   #P @  !@    @    \"          4    (     0    (    !          4 !  +     0   #<   !C:&%N;F5L<P   'E,:6T         ;&%B96Q0;W,   !L86)E;$@      &QA8F5L4&%T8V@   X    X    !@    @    &          4    (     0    $    !          D    (             $ .    0     8    (    !@         %    \"     $    \"     0         )    $    )J9F9F9F;F_FIF9F9F9\\3\\.    ,     8    (    !          %    \"     $    \"     0         0  ( 5$P   X    X    !@    @    &          4    (     0    $    !          D    (        *(!TPD .    .     8    (    !@         %    \"     $    !     0         )    \"        %  \\<% #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   !     !@    @    &          4    (     0    (    !          D    0    FIF9F9F9N;^:F9F9F9GQ/PX    P    !@    @    $          4    (     0    (    !         !   @!43   #@   #@    &    \"     8         !0    @    !     0    $         \"0    @        P@';\"0 X    X    !@    @    &          4    (     0    $    !          D    (        ) !VPD .    : (   8    (     @         %    \"     $    !     0         %  0 #@    $   !B    9&ES<%1I;64       !D:7-P36]D90       &UI;E1I;64         ;6%X5&EM90        !A9G1E<D9I;F%L4W1R '-A;7!L951I;64     >F5R;T-R;W-S               .    0     8    (    !@         %    \"     $    \"     0         )    $                       )$ .    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (            )$ .    0     8    (    !          %    \"     $    +     0         0    \"P   $5X=')A<&]L871E       .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #     &    \"     0         !0    @    !     @    $         $  \" &]N   .    B $   8    (     @         %    \"     $    !     0         %  0 #@    $    X    86-T:79E1&ES<$ED> !T:6UE4F%N9V4      &YA;64             9&ES<&QA>5)A;F=E   .    0     8    (    !@         %    \"     $    \"     0         )    $             !         \\#\\.    0     8    (    !@         %    \"     $    \"     0         )    $                       )$ .    .     8    (    !          %    \"     $    '     0         0    !P   $=R;W5P(#$ #@   $     &    \"     8         !0    @    !     @    $         \"0   !                       \"1 #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX    X    !@    @    &          4    (     0    $    !          D    (               "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    R ,   8    (     @         %    \"     $    !     0         %  0 $0    $   #,    =F5R:69Y0FQK4&%T:',   !V97)I9GE\";&M(86YD;&5S '9N=DUG<DED>           86-T:79E1W)O=7        !R97%$:7-P4')C;G0      &)L:T1I<W!-;V1E        9W)O=7!#;G0           !G<F]U<%)E<4-N=        &=R;W5P1$]/4E-I9       ;6]D96Q(              !B;&]C:T@              &]V97)I9&53971T:6YG<P        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )          X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    ,     8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (               !          D         #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX    P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @               $         \"0         .    .     8    (    !@         %    \"     $    !     0         )    \"        $ &L*I #@   #@    &    \"     8         !0    @    !     0    $         \"0    @       ! !JJK0 X    P    !@    @    &          4    (               !          D         "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    8!(   8    (     @         %    \"     $    !     0         %  0 %@    $   \":    9W)I9%-E='1I;F<              &-H86YN96QS                  !A>&5S                        8V]M;6]N                     &1A=&%3970                   !D871A4V5T261X                :7-697)I9FEC871I;VY6:7-I8FQE          X    P    !@    @    $          4    (     0    (    !         !   @!O;@  #@   - )   &    \"     (         !0    @    !     @    $         !0 $  H    !    @@   'A$871A      !Y1&%T80      <W1E<%@      '-T97!9      !Y36EN        >4UA>        &-O;&]R      !L:6YE4W1Y;&4 ;&EN95=I9'1H &QA8F5L      !O=71);F1E>   86QL6$1A=&$  &%L;%E$871A           .    <     8    (    !@         %    \"     $    (     0         )    0               4K@>A>M1\\#\\        00        !1         &$         <0 K7HW ]\"B!         )$ .    <     8    (    !@         %    \"     $    (     0         )    0                         ![%*Y'X7J$/TCA>A2N1^D_        \\#](X7H4KD?I/WL4KD?A>H0_           .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &          4    (     0    $    !          D    (            \\/\\.    .     8    (    !@         %    \"     $    !     0         )    \"            /!_#@   $@    &    \"     8         !0    @    !     P    $         \"0   !@   !\"/NC9K/KJ/P                     .    ,     8    (    !          %    \"     $    !     0         0  $ +0    X    X    !@    @    &          4    (     0    $    !          D    (            ^#\\.    .     8    (    !          %    \"     $    (     0         0    \"    %-I9VYA;\" Q#@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/PX   \"@    !@    @    !          4    (     0    $    !          X   !P    !@    @    &          4    (     0    @    !          D   !               !2N!Z%ZU'P/P       !!         %$         80        !Q \"M>C<#T*($         D0 X   \"@    !@    @    !          4    (     0    $    !          X   !P    !@    @    &          4    (     0    @    !          D   !                          'L4KD?A>H0_2.%Z%*Y'Z3\\       #P/TCA>A2N1^D_>Q2N1^%ZA#\\           X   !P    !@    @    &          4    (     0    @    !          D   !               !2N!Z%ZU'P/U*X'H7K4? _         $         (0        !! %:Y'X7H4%$         D0 X   !P    !@    @    &          4    (     0    @    !          D   !                          'L4KD?A>H0_2.%Z%*Y'Z3\\       #P/TCA>A2N1^D_>Q2N1^%ZA#\\           X    X    !@    @    &          4    (     0    $    !          D    (               .    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P_PX    X    !@    @    &          4    (     0    $    !          D    (            \\'\\.    2     8    (    !@         %    \"     $    #     0         )    &    -B!<T:4]N8_          #8@7-&E/;F/PX    P    !@    @    $          4    (     0    $    !         !   0 M    #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #X/PX    X    !@    @    $          4    (     0    @    !         !     (    4VEG;F%L(#(.    .     8    (    !@         %    \"     $    !     0         )    \"             ! #@   *     &    \"     $         !0    @    !     0    $         #@   '     &    \"     8         !0    @    !    \"     $         \"0   $               %*X'H7K4? _4K@>A>M1\\#\\         0         A         $$ 5KD?A>A040        \"1 #@   *     &    \"     $         !0    @    !     0    $         #@   '     &    \"     8         !0    @    !    \"     $         \"0   $                          >Q2N1^%ZA#](X7H4KD?I/P       / _2.%Z%*Y'Z3][%*Y'X7J$/P          #@   / \"   &    \"     (         !0    @    !     @    $         !0 $  L    !    -P   &-H86YN96QS    >4QI;0        !L86)E;%!O<P   &QA8F5L2       ;&%B96Q0871C:   #@   #@    &    \"     8         !0    @    !     0    $         \"0    @             0 X   !     !@    @    &          4    (     0    (    !          D    0    FIF9F9F9N;^:F9F9F9GQ/PX    P    !@    @    $          4    (     0    (    !         !   @!43   #@   #@    &    \"     8         !0    @    !     0    $         \"0    @        0 $FR0 X    X    !@    @    &          4    (     0    $    !          D    (        ( \"0L4 .    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   $     &    \"     8         !0    @    !     @    $         \"0   !    \":F9F9F9FYOYJ9F9F9F?$_#@   #     &    \"     0         !0    @    !     @    $         $  \" %1,   .    .     8    (    !@         %    \"     $    !     0         )    \"        !  3;) #@   #@    &    \"     8         !0    @    !     0    $         \"0    @        0 $RR0 X   !H @  !@    @    \"          4    (     0    $    !          4 !  .     0   &(   !D:7-P5&EM90       &1I<W!-;V1E        ;6EN5&EM90        !M87A4:6UE         &%F=&5R1FEN86Q3='( <V%M<&QE5&EM90    !Z97)O0W)O<W,               X   !     !@    @    &          4    (     0    (    !          D    0                       D0 X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    .     8    (    !@         %    \"     $    !     0         )    \"               #@   #@    &    \"     8         !0    @    !     0    $         \"0    @            D0 X   !     !@    @    $          4    (     0    L    !         !     +    17AT<F%P;VQA=&4       X    X    !@    @    &          4    (     0    $    !          D    (               .    ,     8    (    !          %    \"     $    \"     0         0  ( ;VX   X   \"( 0  !@    @    \"          4    (     0    $    !          4 !  .     0   #@   !A8W1I=F5$:7-P261X '1I;65286YG90      ;F%M90            !D:7-P;&%Y4F%N9V4   X   !     !@    @    &          4    (     0    (    !          D    0             $        #P/PX   !     !@    @    &          4    (     0    (    !          D    0                       D0 X    X    !@    @    $          4    (     0    <    !         !     '    1W)O=7 @,0 .    0     8    (    !@         %    \"     $    \"     0         )    $                       )$ .    .     8    (    !@         %    \"     $    !     0         )    \"            / _#@   #@    &    \"     8         !0    @    !     0    $         \"0    @               "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    6     8    (    !          %    \"     $    D     0         0    )    $AY43)-87A?3&5G7S)$;V9?1F]R06,Q0WEL36]T+T=R;W5N9      "
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 6.7 (R2007b) dated Aug  7 2007, 17:13:54
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "HyQ2Max_Leg_2Dof_ForAc1CylMot"
+    created		    "27-Jan-2016 15:34:56"
+    isLibrary		    0
+    firstTarget		    2
+    sfVersion		    67014000.000001
+  }
+  target {
+    id			    2
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 0]
+  }
+}
