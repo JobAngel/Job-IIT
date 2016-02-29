@@ -88,9 +88,13 @@ hylmodel.appearance.body{2} = { 'cyl', [0,0,0; P_12,0,0], 0.015, plot_axes };
 hylmodel.appearance.body{3} = { 'cyl', [0,0,0; P_23,0,0], 0.012, plot_axes, 'sphere', [P_23,0,0], R_foot };
 
 % Floor plotting
-hylmodel.appearance.base = { 'tiles', [-0.5 0.5; -1 1; 0 0], 0.25, plot_axes};
+hylmodel.appearance.base = { 'tiles', [-0.5 0.5; -0.37 0.63; 0 0], 0.25, plot_axes};
 
-
+% Camera
+hylmodel.camera.body = 1;
+hylmodel.camera.direction = [0 1 0.5];
+hylmodel.camera.zoom = 0.5;
+ 
 % GROUND CONTACT
 hylmodel.gc.body = 3; 
 hylmodel.gc.point = [P_23+R_foot;0;0];
