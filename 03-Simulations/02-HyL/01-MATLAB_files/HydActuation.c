@@ -6,18 +6,25 @@
 
 #define U(element) (*uPtrs[element])  /* Pointer to Input Port0 */
 
+/*=================*
+ * EXTRA Functions *
+ *=================*/
+
+/* SATURATION of the valve (DEAD ZONE)*/
 double sat(double val,double min, double max){
     if (val < min) return min;
     else if (val > max) return max;
     else return val;
 }
 
+/* SIGNUM function*/
 int sgn(double val) {
  if (val < 0) return -1;
  if (val==0) return 0;
  return 1;
 }
 
+/* ABSOLUTE value function*/
 double abso(double x){
 if (x < 0) return -x;
 else return x;
@@ -27,11 +34,7 @@ else return x;
  * S-function methods *
  *====================*/
 
-/* Function: mdlInitializeSizes ===============================================
- * Abstract:
- *          The sizes information is used by Simulink to determine the S-function
- *          block's characteristics (number of inputs, outputs, states, etc.).
- */
+/* Function: mdlInitializeSizes */
 static void mdlInitializeSizes(SimStruct *S)
 {
     ssSetNumSFcnParams(S, 19);  /* Number of expected parameters */
@@ -39,8 +42,7 @@ static void mdlInitializeSizes(SimStruct *S)
         return; /* Parameter mismatch will be reported by Simulink */
     }
 
-    /* Number of continuous states*/
-    ssSetNumContStates(S, 4);
+    ssSetNumContStates(S, 4); /* Number of continuous states*/
 
     if (!ssSetNumInputPorts(S, 3)) return; /*Number of INPUTS*/
     ssSetInputPortWidth(S, 0, 1);          /* In0.0: I */
@@ -51,21 +53,17 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortDirectFeedThrough(S, 1, 1);
     ssSetInputPortDirectFeedThrough(S, 2, 1);
 
+    
     if (!ssSetNumOutputPorts(S, 1)) return;/* Number of OUTPUTS */
     ssSetOutputPortWidth(S, 0, 1);         /* Out0.0: deltaF */
 
     ssSetNumSampleTimes(S, 1);
     ssSetSimStateCompliance(S, USE_DEFAULT_SIM_STATE);
 
-//     /* Take care when specifying exception free code - see sfuntmpl_doc.c */
-//     ssSetOptions(S, SS_OPTION_EXCEPTION_FREE_CODE);
     ssSetOptions(S, 0);
 }
 
-/* Function: mdlInitializeSampleTimes =========================================
- * Abstract:
- *    Specifiy that we have a continuous sample time.
- */
+/* Function: mdlInitializeSampleTimes */
 static void mdlInitializeSampleTimes(SimStruct *S)
 {
     ssSetSampleTime(S, 0, CONTINUOUS_SAMPLE_TIME);
@@ -75,31 +73,22 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 
 #define MDL_INITIALIZE_CONDITIONS
 #if defined(MDL_INITIALIZE_CONDITIONS)
-/*
- * Set the initial conditions to [0 2]
- */
 static void mdlInitializeConditions(SimStruct *S)
 {
     real_T *x0 = ssGetContStates(S);
-
-    /* Initialize to the inputs */
-    x0[0] = 0.0;
-    x0[1] = 0.0;
-    x0[2] = 0.0;
-    x0[3] = 0.0;
+    x0[0] = 0.0; /* Ucs  */
+    x0[1] = 0.0; /* dUcs */
+    x0[2] = 0.0; /* pA   */
+    x0[3] = 0.0; /* pB   */
 
 }
 #endif /* MDL_INITIALIZE_CONDITIONS */
 
 
 
-/* Function: mdlOutputs =======================================================
- * Abstract:
- *      y = Cx + Du 
- */
+/* Function: mdlOutputs */
 static void mdlOutputs(SimStruct *S, int_T tid)
 {
-    
     double Aa    = ( mxGetPr(ssGetSFcnParam(S,14)) )[0];
     double Ab    = ( mxGetPr(ssGetSFcnParam(S,15)) )[0];
     double fv    = ( mxGetPr(ssGetSFcnParam(S,18)) )[0];
@@ -107,19 +96,16 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     real_T            *y    = ssGetOutputPortRealSignal(S,0);
     real_T            *x    = ssGetContStates(S);
     InputRealPtrsType uPtrs = ssGetInputPortRealSignalPtrs(S,0);
- 
-    UNUSED_ARG(tid); /* not used in single tasking mode */
+    
+    UNUSED_ARG(tid); 
 
+    /* OUTPUT equation*/
     y[0] = (Aa*x[2] - Ab*x[3]) - fv*U(2);
-   
 }
 
 
 #define MDL_DERIVATIVES
-/* Function: mdlDerivatives =================================================
- * Abstract:
- *      xdot = Ax + Bu
- */
+/* Function: mdlDerivatives */
 static void mdlDerivatives(SimStruct *S)
 {
     double wn    = ( mxGetPr(ssGetSFcnParam(S,0)) )[0];
@@ -167,10 +153,7 @@ static void mdlDerivatives(SimStruct *S)
 
 }
 
-/* Function: mdlTerminate =====================================================
- * Abstract:
- *    No termination needed, but we are required to have this routine.
- */
+/* Function: mdlTerminate */
 static void mdlTerminate(SimStruct *S)
 {
     UNUSED_ARG(S); /* unused input argument */
