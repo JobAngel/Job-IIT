@@ -76,8 +76,8 @@ static void mdlInitializeSampleTimes(SimStruct *S)
 static void mdlInitializeConditions(SimStruct *S)
 {
     real_T *x0 = ssGetContStates(S);
-    x0[0] = 0.0; /* Ucs  */
-    x0[1] = 0.0; /* dUcs */
+    x0[0] = 0.0; /* Ics  */
+    x0[1] = 0.0; /* dIcs */
     x0[2] = 0.0; /* pA   */
     x0[3] = 0.0; /* pB   */
 

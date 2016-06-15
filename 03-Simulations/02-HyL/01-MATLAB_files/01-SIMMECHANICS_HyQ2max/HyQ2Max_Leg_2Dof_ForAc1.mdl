@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.273"
+    ComputedModelVersion    "1.278"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -44,9 +44,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Gustavo"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 01 11:27:15 2016"
+  LastModifiedDate	  "Mon Mar 14 08:59:25 2016"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:273>"
+  ModelVersionFormat	  "1.%<AutoIncrement:278>"
   ConfigurationManager	  "None"
   UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts;"
   SimulationMode	  "normal"
@@ -481,7 +481,7 @@ Model {
     $ObjectID		    1
   }
   PhysicalModelingChecksum "1888240842"
-  PhysicalModelingParameterChecksum "3288455772"
+  PhysicalModelingParameterChecksum "115398425"
   PhysicalModelingProducts "SimMechanics|Simscape"
   BlockDefaults {
     Orientation		    "right"
@@ -514,6 +514,11 @@ Model {
     Block {
       BlockType		      From
       IconDisplay	      "Tag"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      Gain
@@ -562,9 +567,32 @@ Model {
       Interpolate	      on
     }
     Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
       BlockType		      "M-S-Function"
       FunctionName	      "mlfile"
       DisplayMFileStacktrace  on
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
     }
     Block {
       BlockType		      Outport
@@ -606,9 +634,22 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Sensor
       SubClassName	      "unknown"
       PortType		      "blob"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
     }
     Block {
       BlockType		      Step
@@ -747,7 +788,7 @@ Model {
       System {
 	Name			"Body Force\nInterface for Lower leg"
 	Location		[335, 245, 1209, 762]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -771,80 +812,6 @@ Model {
 	  OutDataType		  "sfix(16)"
 	  OutScaling		  "2^-10"
 	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Body A"
-	  Ports			  [0, 0, 0, 0, 0, 2, 1]
-	  Position		  [375, 205, 435, 245]
-	  DialogController	  "MECH.DynMechDlgSource"
-	  SourceBlock		  "mblibv1/Bodies/Body"
-	  SourceType		  "msb"
-	  PhysicalDomain	  "mechanical"
-	  SubClassName		  "Unknown"
-	  LeftPortType		  "workingframe"
-	  RightPortType		  "workingframe"
-	  LConnTagsString	  "CS3|CS1"
-	  RConnTagsString	  "CS2"
-	  ClassName		  "Body"
-	  DialogClass		  "MechanicalBodyBlock"
-	  Mass			  "0.09"
-	  MassUnits		  "kg"
-	  InertiaUnits		  "kg*m^2"
-	  Inertia		  "eye(3)*1e-4"
-	  Shape			  "Cylinder"
-	  ShapeDims		  "[1 1]"
-	  ShapeUnits		  "m"
-	  ShapeUse		  "false"
-	  Density		  "1"
-	  DensityUnits		  "kg/m^3"
-	  DensityUse		  "false"
-	  CG			  "Left$CG$[-.3935857/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
-	  WorkingFrames		  "Left$CS3$[0 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 -55.1441]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[-.3935857 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
-	  CGPos			  "[-.3935857/2 0 0]"
-	  CGRot			  "[0 0 0]"
-	  CS0Pos		  "[]"
-	  CS0Rot		  "[]"
-	  CS1Pos		  "[0 0 0]"
-	  CS1Rot		  "[0 0 -55.1441]"
-	  CS2Pos		  "[-.3935857 0 0]"
-	  CS2Rot		  "[0 0 0]"
-	  CS3Pos		  "[0 0 0]"
-	  CS3Rot		  "[0 0 0]"
-	  CS4Pos		  "[]"
-	  CS4Rot		  "[]"
-	  CS5Pos		  "[]"
-	  CS5Rot		  "[]"
-	  CS6Pos		  "[]"
-	  CS6Rot		  "[]"
-	  CS7Pos		  "[]"
-	  CS7Rot		  "[]"
-	  CS8Pos		  "[]"
-	  CS8Rot		  "[]"
-	  CS9Pos		  "[]"
-	  CS9Rot		  "[]"
-	  CS10Pos		  "[]"
-	  CS10Rot		  "[]"
-	  CS11Pos		  "[]"
-	  CS11Rot		  "[]"
-	  CS12Pos		  "[]"
-	  CS12Rot		  "[]"
-	  CS13Pos		  "[]"
-	  CS13Rot		  "[]"
-	  CS14Pos		  "[]"
-	  CS14Rot		  "[]"
-	  CS15Pos		  "[]"
-	  CS15Rot		  "[]"
-	  CS16Pos		  "[]"
-	  CS16Rot		  "[]"
-	  CS17Pos		  "[]"
-	  CS17Rot		  "[]"
-	  CS18Pos		  "[]"
-	  CS18Rot		  "[]"
-	  CS19Pos		  "[]"
-	  CS19Rot		  "[]"
-	  CS20Pos		  "[]"
-	  CS20Rot		  "[]"
 	}
 	Block {
 	  BlockType		  Reference
@@ -882,80 +849,6 @@ Model {
 	  CS1Pos		  "[0 0 0]"
 	  CS1Rot		  "[0 0 -52.3270]"
 	  CS2Pos		  "[.056 0 0]"
-	  CS2Rot		  "[0 0 0]"
-	  CS3Pos		  "[]"
-	  CS3Rot		  "[]"
-	  CS4Pos		  "[]"
-	  CS4Rot		  "[]"
-	  CS5Pos		  "[]"
-	  CS5Rot		  "[]"
-	  CS6Pos		  "[]"
-	  CS6Rot		  "[]"
-	  CS7Pos		  "[]"
-	  CS7Rot		  "[]"
-	  CS8Pos		  "[]"
-	  CS8Rot		  "[]"
-	  CS9Pos		  "[]"
-	  CS9Rot		  "[]"
-	  CS10Pos		  "[]"
-	  CS10Rot		  "[]"
-	  CS11Pos		  "[]"
-	  CS11Rot		  "[]"
-	  CS12Pos		  "[]"
-	  CS12Rot		  "[]"
-	  CS13Pos		  "[]"
-	  CS13Rot		  "[]"
-	  CS14Pos		  "[]"
-	  CS14Rot		  "[]"
-	  CS15Pos		  "[]"
-	  CS15Rot		  "[]"
-	  CS16Pos		  "[]"
-	  CS16Rot		  "[]"
-	  CS17Pos		  "[]"
-	  CS17Rot		  "[]"
-	  CS18Pos		  "[]"
-	  CS18Rot		  "[]"
-	  CS19Pos		  "[]"
-	  CS19Rot		  "[]"
-	  CS20Pos		  "[]"
-	  CS20Rot		  "[]"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Body B"
-	  Ports			  [0, 0, 0, 0, 0, 1, 1]
-	  Position		  [595, 205, 655, 245]
-	  DialogController	  "MECH.DynMechDlgSource"
-	  SourceBlock		  "mblibv1/Bodies/Body"
-	  SourceType		  "msb"
-	  PhysicalDomain	  "mechanical"
-	  SubClassName		  "Unknown"
-	  LeftPortType		  "workingframe"
-	  RightPortType		  "workingframe"
-	  LConnTagsString	  "CS1"
-	  RConnTagsString	  "CS2"
-	  ClassName		  "Body"
-	  DialogClass		  "MechanicalBodyBlock"
-	  Mass			  "0.09"
-	  MassUnits		  "kg"
-	  InertiaUnits		  "kg*m^2"
-	  Inertia		  "eye(3)*1e-4"
-	  Shape			  "Cylinder"
-	  ShapeDims		  "[1 1]"
-	  ShapeUnits		  "m"
-	  ShapeUse		  "false"
-	  Density		  "1"
-	  DensityUnits		  "kg/m^3"
-	  DensityUse		  "false"
-	  CG			  "Left$CG$[-.3935857/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
-	  WorkingFrames		  "Left$CS1$[.3935857 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[-.3935857 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
-	  CGPos			  "[-.3935857/2 0 0]"
-	  CGRot			  "[0 0 0]"
-	  CS0Pos		  "[]"
-	  CS0Rot		  "[]"
-	  CS1Pos		  "[.3935857 0 0]"
-	  CS1Rot		  "[0 0 0]"
-	  CS2Pos		  "[-.3935857 0 0]"
 	  CS2Rot		  "[0 0 0]"
 	  CS3Pos		  "[]"
 	  CS3Rot		  "[]"
@@ -1073,9 +966,83 @@ Model {
 	  Name			  "Constant"
 	  Position		  [360, 270, 390, 300]
 	  Orientation		  "left"
-	  Value			  "0.06834/2+1.4570e-4"
+	  Value			  "0.06834+1.4570e-4"
 	  OutDataType		  "sfix(16)"
 	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Cylinder"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [595, 205, 655, 245]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.09"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-4"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[(-.3935857+0.06834+1.4570e-4)/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[(-.3935857+0.06834+1.4570e-4) 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[(-.3935857+0.06834+1.4570e-4)/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[0 0 0]"
+	  CS1Rot		  "[0 0 0]"
+	  CS2Pos		  "[(-.3935857+0.06834+1.4570e-4) 0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[]"
+	  CS3Rot		  "[]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1529,6 +1496,80 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
+	  Name			  "Piston_Rod"
+	  Ports			  [0, 0, 0, 0, 0, 2, 1]
+	  Position		  [405, 205, 465, 245]
+	  DialogController	  "MECH.DynMechDlgSource"
+	  SourceBlock		  "mblibv1/Bodies/Body"
+	  SourceType		  "msb"
+	  PhysicalDomain	  "mechanical"
+	  SubClassName		  "Unknown"
+	  LeftPortType		  "workingframe"
+	  RightPortType		  "workingframe"
+	  LConnTagsString	  "CS3|CS1"
+	  RConnTagsString	  "CS2"
+	  ClassName		  "Body"
+	  DialogClass		  "MechanicalBodyBlock"
+	  Mass			  "0.09"
+	  MassUnits		  "kg"
+	  InertiaUnits		  "kg*m^2"
+	  Inertia		  "eye(3)*1e-4"
+	  Shape			  "Cylinder"
+	  ShapeDims		  "[1 1]"
+	  ShapeUnits		  "m"
+	  ShapeUse		  "false"
+	  Density		  "1"
+	  DensityUnits		  "kg/m^3"
+	  DensityUse		  "false"
+	  CG			  "Left$CG$[(-0.06834-1.4570e-4)/2 0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$false"
+	  WorkingFrames		  "Left$CS3$[0 0 0]$Adjoining$Adjoining$m$[0 0 0]$Euler X-Y-Z$deg$Adjoining$true#Left$CS1$[0 0 0]$Adjoining$Adjoining$m$[0 0 -55.1441]$Euler X-Y-Z$deg$Adjoining$true#Right$CS2$[(-0.06834-1.4570e-4)  0 0]$CS1$CS1$m$[0 0 0]$Euler X-Y-Z$deg$CS1$true"
+	  CGPos			  "[(-0.06834-1.4570e-4)/2 0 0]"
+	  CGRot			  "[0 0 0]"
+	  CS0Pos		  "[]"
+	  CS0Rot		  "[]"
+	  CS1Pos		  "[0 0 0]"
+	  CS1Rot		  "[0 0 -55.1441]"
+	  CS2Pos		  "[(-0.06834-1.4570e-4)  0 0]"
+	  CS2Rot		  "[0 0 0]"
+	  CS3Pos		  "[0 0 0]"
+	  CS3Rot		  "[0 0 0]"
+	  CS4Pos		  "[]"
+	  CS4Rot		  "[]"
+	  CS5Pos		  "[]"
+	  CS5Rot		  "[]"
+	  CS6Pos		  "[]"
+	  CS6Rot		  "[]"
+	  CS7Pos		  "[]"
+	  CS7Rot		  "[]"
+	  CS8Pos		  "[]"
+	  CS8Rot		  "[]"
+	  CS9Pos		  "[]"
+	  CS9Rot		  "[]"
+	  CS10Pos		  "[]"
+	  CS10Rot		  "[]"
+	  CS11Pos		  "[]"
+	  CS11Rot		  "[]"
+	  CS12Pos		  "[]"
+	  CS12Rot		  "[]"
+	  CS13Pos		  "[]"
+	  CS13Rot		  "[]"
+	  CS14Pos		  "[]"
+	  CS14Rot		  "[]"
+	  CS15Pos		  "[]"
+	  CS15Rot		  "[]"
+	  CS16Pos		  "[]"
+	  CS16Rot		  "[]"
+	  CS17Pos		  "[]"
+	  CS17Rot		  "[]"
+	  CS18Pos		  "[]"
+	  CS18Rot		  "[]"
+	  CS19Pos		  "[]"
+	  CS19Rot		  "[]"
+	  CS20Pos		  "[]"
+	  CS20Rot		  "[]"
+	}
+	Block {
+	  BlockType		  Reference
 	  Name			  "Prismatic"
 	  Ports			  [0, 0, 0, 0, 0, 2, 2]
 	  Position		  [500, 212, 550, 263]
@@ -1719,7 +1760,7 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "Body A"
+	  SrcBlock		  "Piston_Rod"
 	  SrcPort		  RConn1
 	  DstBlock		  "Prismatic"
 	  DstPort		  RConn1
@@ -1728,7 +1769,7 @@ Model {
 	  LineType		  "Connection"
 	  SrcBlock		  "Prismatic"
 	  SrcPort		  LConn1
-	  DstBlock		  "Body B"
+	  DstBlock		  "Cylinder"
 	  DstPort		  LConn1
 	}
 	Line {
@@ -1751,7 +1792,7 @@ Model {
 	  LineType		  "Connection"
 	  SrcBlock		  "Spherical B"
 	  SrcPort		  LConn1
-	  DstBlock		  "Body B"
+	  DstBlock		  "Cylinder"
 	  DstPort		  RConn1
 	}
 	Line {
@@ -1809,7 +1850,7 @@ Model {
 	  SrcBlock		  "Revolute"
 	  SrcPort		  RConn1
 	  Points		  [0, 5]
-	  DstBlock		  "Body A"
+	  DstBlock		  "Piston_Rod"
 	  DstPort		  LConn2
 	}
 	Line {
@@ -1847,7 +1888,7 @@ Model {
 	  SrcBlock		  "Revolute2"
 	  SrcPort		  RConn1
 	  Points		  [45, 0; 0, 120; -140, 0; 0, 25]
-	  DstBlock		  "Body A"
+	  DstBlock		  "Piston_Rod"
 	  DstPort		  LConn1
 	}
 	Line {
@@ -1936,8 +1977,8 @@ Model {
       ClassName		      "Ground"
       CoordPosition	      "[0 0 0]"
       CoordPositionUnits      "m"
-      StateVectorMgrId	      "-1"
-      MachineId		      "[0 0]"
+      StateVectorMgrId	      "2"
+      MachineId		      "[3 0]"
       ShowEnvPort	      on
     }
     Block {

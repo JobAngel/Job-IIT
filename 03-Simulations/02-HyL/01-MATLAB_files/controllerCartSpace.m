@@ -29,4 +29,6 @@ J = hylJac(q);
 %Control action
 output = J' * ( Kp_ * (des_Xf - Xf) + Kd_ * J * (des_dq -dq) );
 
+% output = pinv(output)*output*[5 5]';
+
 end

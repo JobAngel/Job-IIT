@@ -70,27 +70,21 @@ q0Min = P_01+P_12*cos(q1Min)+P_23*cos(q1Min+q2Min)+FR;     % m
 
 % ------ Power unit --------
 
-ps  = 160e5;                            % Pa - Supply pressure
+ps  = 160e5;                             % Pa - Supply pressure
 pt  = 10e5;                              % Pa - Tank pressure
 dpt = ps - pt;                           % Pa - Delta pressure
-beta = 1.4e9;                          % Pa- Effective bulk modulus 
-
-% Initial condition for integrators
-
-xo = 0;
-pAo = 0;%ps/2;
-pBo = 0;%ps/2;
+beta = 1.4e9;%8e7;%                          % Pa- Effective bulk modulus 
 
 %----- Cylinder - HOERBIGER LB6 16 10 0080 4M ----------
 
 Dp = 0.016;                             % m - Piston diameter
-Dr = 0.010;                              % m - Rod diameter
-L  = 0.080;                               % m- Stroke
-Aa = pi*(Dp^2)/4;                   % m^2 - Area A of the piston
-Ab = pi*(Dp^2-Dr^2)/4;         % m^2 - Area B of the piston
-r  = Aa/Ab;                              % Relation between areas
-fv = 700;                                 %  Ns/m - Viscous friction
-leak =1.7*10^-13;                 % m3/(s.Pa) - Cylinder leakage
+Dr = 0.010;                             % m - Rod diameter
+L  = 0.080;                             % m- Stroke
+Aa = pi*(Dp^2)/4;                       % m^2 - Area A of the piston
+Ab = pi*(Dp^2-Dr^2)/4;                  % m^2 - Area B of the piston
+r  = Aa/Ab;                             % Relation between areas
+fv = 700;                               % Ns/m - Viscous friction
+leak = 0 ;%1.7*10^-13;%                 % m3/(s.Pa) - Cylinder leakage
 Mp = ((pi*Dr^2/4)*L + Aa*0.15)*7860;    % Kg - Piston mass (approximated)
 Lcyl = 0.280;                           % m - Total length of the cylinder
  
@@ -100,13 +94,16 @@ In   = 10e-3;                               % I - Nominal control current
 Qn   = 7.5 / 60e3;                 % m^3/s - Nominal flow rate
 dptn = 70e5;                         % Pa - Valve pressure drop
 Qlk   = 0.375 / 60e3;               % m^3/s - Leakage flow
-Plk    = 70e5;                       % Pa - Nominal supply pressure for leakage test
+Plk    = 210e5;%70e5;                       % Pa - Nominal supply pressure for leakage test
 wn    = 2*100*pi;                    % rad/s - Valve's natural frequency
 E       = 0.7;                           % Valve's damping coefficient  
 Kv     = Qn/sqrt(dptn);          % m^3/(s*sqrt(Pa)) - Total flow coefficient
 Kva    = Kv*sqrt(2);               % m^3/(s*sqrt(Pa)) - Partial flow coefficient A
 Kvb    = Kv*sqrt(2);               % m^3/(s*sqrt(Pa)) - Partial flow coefficient B
 Kvlk   = Qlk/sqrt(2*Plk);         % m^3/(s*sqrt(Pa)) - Total leakage flow coefficient
+
+% Kvlk  = 0;                         % m^3/(s*sqrt(Pa)) -  Partial leakage flow coefficient A
+
 KvlkA  = Kvlk;                         % m^3/(s*sqrt(Pa)) -  Partial leakage flow coefficient A
 KvlkB  = Kvlk;                         % m^3/(s*sqrt(Pa)) - Partial leakage flow coefficient B
 up_dz = 0;                             % V - Upper limit of dead zone
@@ -120,8 +117,8 @@ v2a = (pi*(0.006^2)/4)*(0.090-0.012);
 v1b = (pi*(0.0035^2)/4)*0.04491;
 v2b = (pi*(0.006^2)/4)*(0.019+0.009);
 v3b = (pi*(0.006^2)/4)*(0.007+0.009);
-V0A = v1a + v2a;                                            % Dead volume coupled to chamber A
-V0B = v1b + v2b + v3b;                                  % Dead volume coupled to chamber B
+V0A = v1a + v2a;                       % Dead volume coupled to chamber A
+V0B = v1b + v2b + v3b;                 % Dead volume coupled to chamber B
 
 %-------  Load cell - BURSTER 8417-6005 ----------
 
@@ -135,20 +132,74 @@ noise = 0;                            % N - noise due nonlinearities, hysteresis
 
 n = 1.4;                    % Polytropic constant
 Tamb = 298;
-P0 = 100e5;
-Pmax_acc = 320e5;
+sigma = 0.7;                % manufacturer recomendation 0.7 ~ 0.9
+P0 = 100e5;%ps*sigma;%                  % Pa - precharge pressure
+Pmax_acc = 320e5;           % Pa - maximum pressure
 V0 = 0.04e-3;               % m3 - Initial volume of the accumulator 
 h = 10;                     % W/(m^2·K)- Convection heat transfer coefficient
-Aw = 0.01;                  % m^2 - Thermal exchange area
-dacc = 10e-3;                % m - Diameter of the inlet orifice 
-Adacc = pi*dacc^2/4;        % m^2 - Area of the inlet orifice of the accumulator
-rho = 800;                  % Kg/m^3 - Fluid density
+DAcc = 6e-3;
+Aw = 4*V0/DAcc;                  % m^2 - Thermal exchange area
+din = 6e-3;                % m - Diameter of the inlet orifice 
+Ain = pi*din^2/4;        % m^2 - Area of the inlet orifice of the accumulator
 mf = 0;
 cf = 0;
 
-% TESTS
 
-Kp = 1e-4;
-Ki = 1e-4;
-Kd = 1e-4;
+%------ Hose data ----------
+length = 0.5;
+dia = (8/16)*2.54e-2;
+g1a = 0.004;
+g1p = 2;
+g2a = 0.002;
+g2p = 2;
+n2n1 = -1.91;
+w0h = 100;
+terms = 8;
+nu = 32; %cSt
+nu = nu*1.e-6;
+Reini = 2500;
+ReT = 2500;
+[ah,bh,delay] = gethosewave(g1p, g1a, w0h, length, terms);
+[ah2,bh2,delay2] = gethosewave(g2p, g2a, w0h, length, terms);
+
+a_ccfoot =  0.0032;%0.01573;%
+a = a_ccfoot * 4.7572e-10;
+b_cc = 0.1637;%-0.44928;%
+b = b_cc * 3.2808e-6;
+
+%------ Fluid ----------
+
+rho = 800;                  % Kg/m^3 - Fluid density
+m_f = 5.6;                  % Slope of bulk modulus increase
+beta0 = 1.47e9;            % Pa - Fluid bulk modulus of Mineral oil at 70ºC
+
+% Initial condition for integrators
+
+acc = 0;
+xo = 0.04;
+pAo = ps/2;%pt;%
+pBo = ps/2;%pt;%
+
+
+% Friction map parameters
+% // CHECK with the experiments and CHANGE the values !!!
+% -----------------------
+
+Polyp  = [0.4040e4   -1.5314e4    2.2225e4   -1.5405e4    0.5502e4   -0.0647e4    0.0083e4];
+ 
+Polyn  = [-0.4083e4  -1.5245e4   -2.2067e4   -1.5466e4   -0.5594e4   -0.0664e4   -0.0087e4];                      
+
+Fsp    = 101.65;                           % Força de atrito estatico no sentido positivo do movimento [N]
+Fsn    = -99.29;                           % Força de atrito estatico no sentido negativo do movimento [N]
+
+dxlimp = 0.0035;                           % Velocidade limite no sentido positivo do movimento [m/s]
+dxlimn = -0.0035;                          % Velocidade limite no sentido positivo do movimento [m/s]
+
+dx0p   = dxlimp * 0.95;                      % Velocidade de stick no sentido positivo do movimento [m/s]
+dx0n   = dxlimn * 0.95;                     % Velocidade de stick no sentido positivo do movimento [m/s]
+
+% TESTS
+KP = 1e-8;
+KI = 1e-8;
+KD = 1e-8;
 N = 100;
